@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, Platform } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 
 import * as Font from 'expo-font';
 import { AppLoading } from 'expo';
+
+import MealsNavigation from './navigation/MealsNavigation';
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -25,23 +27,17 @@ export default function App() {
     );
   }
 
-  return (
-    <SafeAreaView style={styles.screen}>
-      <Text style={styles.text}>
-        Open up App.js to start working on your app!
-      </Text>
-    </SafeAreaView>
-  );
+  return <MealsNavigation />;
 }
 
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    paddingTop: Platform.OS === 'android' ? 25 : 0
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   text: {
     color: '#777',
-    textAlign: 'center',
     fontFamily: 'lato-regular',
     fontSize: 20
   }
