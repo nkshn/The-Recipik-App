@@ -1,19 +1,48 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, SafeAreaView, Platform } from 'react-native';
+
+import * as Font from 'expo-font';
+import { AppLoading } from 'expo';
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    'lato-bold': require('./assets/fonts/Lato-Bold.ttf'),
+    'lato-light': require('./assets/fonts/Lato-Light.ttf'),
+    'lato-regular': require('./assets/fonts/Lato-Regular.ttf')
+  });
+};
 
 export default function App() {
+  const [fontsLoaded, setFontsLoaded] = useState(false);
+
+  if (!fontsLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setFontsLoaded(true)}
+        onError={error => console.log(error)}
+      />
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <SafeAreaView style={styles.screen}>
+      <Text style={styles.text}>
+        Open up App.js to start working on your app!
+      </Text>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: Platform.OS === 'android' ? 25 : 0
   },
+  text: {
+    color: '#777',
+    textAlign: 'center',
+    fontFamily: 'lato-regular',
+    fontSize: 20
+  }
 });
