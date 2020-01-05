@@ -1,6 +1,10 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
+import Colors from '../constants/colors';
+
+import { CATEGORIES } from '../data/random-data';
+
 const CategoryMealsScreen = props => {
   return (
     <View style={styles.screen}>
@@ -15,6 +19,15 @@ const CategoryMealsScreen = props => {
   );
 };
 
+CategoryMealsScreen.navigationOptions = navigationData => {
+  const caterId = navigationData.navigation.getParam('categoryId');
+  const selectedCategory = CATEGORIES.find(cat => cat.id === caterId);
+
+  return {
+    headerTitle: selectedCategory.title + ' Meals'
+  };
+};
+
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
@@ -23,7 +36,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2c3e50'
   },
   text: {
-    color: '#fff',
+    color: Colors.white,
     fontSize: 18,
     marginBottom: 10
   }
