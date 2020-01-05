@@ -1,17 +1,36 @@
 import React from 'react';
-import { FlatList, View, Text, StyleSheet } from 'react-native';
+import {
+  FlatList,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet
+} from 'react-native';
+
+import Colors from '../constants/colors';
 
 import { CATEGORIES } from '../data/random-data';
 
-const renderGridItem = itemData => {
-  return (
-    <View style={styles.gridItem} backgroundColor={itemData.item.color}>
-      <Text style={styles.title}>{itemData.item.title}</Text>
-    </View>
-  );
-};
-
 const CategoriesScreen = props => {
+  const renderGridItem = itemData => {
+    return (
+      <TouchableOpacity
+        style={styles.gridItem}
+        activeOpacity={0.7}
+        onPress={() =>
+          props.navigation.navigate({
+            routeName: 'CategoryMeals',
+            params: { categoryId: itemData.item.id }
+          })
+        }
+      >
+        <View backgroundColor={itemData.item.color}>
+          <Text style={styles.title}>{itemData.item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
+
   return (
     <FlatList
       numColumns={2}
@@ -21,6 +40,10 @@ const CategoriesScreen = props => {
       showsVerticalScrollIndicator={false}
     />
   );
+};
+
+CategoriesScreen.navigationOptions = {
+  headerTitle: 'Meal Categories'
 };
 
 const styles = StyleSheet.create({
@@ -35,7 +58,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     letterSpacing: 2,
-    fontFamily: 'lato-regular',
+    fontFamily: 'lato-light',
     textTransform: 'capitalize'
   }
 });
