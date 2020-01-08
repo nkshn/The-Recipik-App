@@ -1,20 +1,44 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Button, FlatList, StyleSheet } from 'react-native';
 
-import Colors from '../constants/colors';
+import Mealtem from '../components/Mealtem';
 
-import { CATEGORIES } from '../data/random-data';
+import { CATEGORIES, MEALS } from '../data/random-data';
 
 const CategoryMealsScreen = props => {
+  const renderMealItem = itemData => {
+    return (
+      <Mealtem
+        title={itemData.item.title}
+        imageUrl={itemData.item.imageUrl}
+        duration={itemData.item.duration}
+        complexity={itemData.item.complexity}
+        affordability={itemData.item.affordability}
+      />
+    );
+  };
+
+  const caterId = props.navigation.getParam('categoryId');
+  const selectedCategory = CATEGORIES.find(cat => cat.id === caterId);
+
+  const displayedMeals = MEALS.filter(
+    meal => meal.categoryIds.indexOf(caterId) >= 0
+  );
+
   return (
-    <View style={styles.screen}>
-      <Text style={styles.text}>This is 'CategoryMealsScreen.js'</Text>
-      <Button
+    <View>
+      <FlatList
+        data={displayedMeals}
+        renderItem={renderMealItem}
+        keyExtractor={item => item.id}
+        showsVerticalScrollIndicator={false}
+      />
+      {/* <Button
         title="NEXT: Meal Details"
         onPress={() => {
           props.navigation.navigate({ routeName: 'MealDetails' });
         }}
-      />
+      /> */}
     </View>
   );
 };
@@ -28,18 +52,6 @@ CategoryMealsScreen.navigationOptions = navigationData => {
   };
 };
 
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2c3e50'
-  },
-  text: {
-    color: Colors.white,
-    fontSize: 18,
-    marginBottom: 10
-  }
-});
+const styles = StyleSheet.create({});
 
 export default CategoryMealsScreen;
