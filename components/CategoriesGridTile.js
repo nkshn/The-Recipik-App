@@ -1,22 +1,10 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  Platform,
-  TouchableOpacity,
-  TouchableNativeFeedback
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
 import Colors from '../constants/colors';
+import TouchableComponent from '../components/TouchableComponent';
 
 const CategoriesGridTile = props => {
-  let TouchableComponent = TouchableOpacity;
-
-  if (Platform.OS === 'android' && Platform.Version >= 21) {
-    TouchableComponent = TouchableNativeFeedback;
-  }
-
   return (
     <View style={styles.gridItem}>
       <TouchableComponent
