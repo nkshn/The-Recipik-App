@@ -10,6 +10,7 @@ import {
 import Colors from '../constants/colors';
 
 import Title from '../components/Title';
+import MainButton from '../components/MainButton';
 
 const Mealtem = props => {
   return (
@@ -52,8 +53,12 @@ const Mealtem = props => {
             <Text style={styles.textInfo}>{props.affordability}</Text>
           </View>
         </View>
-        <View style={styles.TEST}>
-          <Text>Test</Text>
+        <View style={styles.buttonContainer}>
+          <MainButton
+            title="View Recipe"
+            style={styles.button}
+            onPress={props.onSelectSpecialMeal}
+          />
         </View>
       </View>
     </View>
@@ -103,15 +108,11 @@ const styles = StyleSheet.create({
   icons: {
     marginRight: 5
   },
-
-  TEST: {
-    width: 100,
-    height: 50,
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 10,
-
-    elevation: 20
+  buttonContainer: {
+    alignItems: 'center'
+  },
+  button: {
+    marginTop: 10
   }
 });
 
