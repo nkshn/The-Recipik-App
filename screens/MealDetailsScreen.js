@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 
 import { MEALS } from '../data/random-data';
+
+import CustomHeaderButton from '../components/CustomHeaderButton';
 
 const MealDetailsScreen = props => {
   const mealId = props.navigation.getParam('mealId');
@@ -10,18 +13,6 @@ const MealDetailsScreen = props => {
   return (
     <View style={styles.screen}>
       <Text style={styles.text}>{selectedMeal.title}</Text>
-      <Button
-        title="Go Back"
-        onPress={() => {
-          props.navigation.goBack();
-        }}
-      />
-      <Button
-        title="Go Back to all Categories"
-        onPress={() => {
-          props.navigation.popToTop();
-        }}
-      />
     </View>
   );
 };
@@ -31,7 +22,16 @@ MealDetailsScreen.navigationOptions = navigationData => {
   const selectedMeal = MEALS.find(meal => meal.id === mealId);
 
   return {
-    headerTitle: selectedMeal.title
+    headerTitle: selectedMeal.title,
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Favorite"
+          iconName="staro"
+          onPress={() => console.log('Meal Favorite')}
+        />
+      </HeaderButtons>
+    )
   };
 };
 
