@@ -14,6 +14,12 @@ const CategoryMealsScreen = props => {
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
+        onSelectSpecialMeal={() => {
+          props.navigation.navigate({
+            routeName: 'MealDetails',
+            params: { mealId: itemData.item.id }
+          });
+        }}
       />
     );
   };
@@ -33,12 +39,6 @@ const CategoryMealsScreen = props => {
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
       />
-      {/* <Button
-        title="NEXT: Meal Details"
-        onPress={() => {
-          props.navigation.navigate({ routeName: 'MealDetails' });
-        }}
-      /> */}
     </View>
   );
 };

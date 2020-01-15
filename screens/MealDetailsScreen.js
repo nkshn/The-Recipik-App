@@ -1,10 +1,15 @@
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
 
+import { MEALS } from '../data/random-data';
+
 const MealDetailsScreen = props => {
+  const mealId = props.navigation.getParam('mealId');
+  const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
   return (
     <View style={styles.screen}>
-      <Text style={styles.text}>This is 'MealDetailsScreen.js'</Text>
+      <Text style={styles.text}>{selectedMeal.title}</Text>
       <Button
         title="Go Back"
         onPress={() => {
@@ -19,6 +24,15 @@ const MealDetailsScreen = props => {
       />
     </View>
   );
+};
+
+MealDetailsScreen.navigationOptions = navigationData => {
+  const mealId = navigationData.navigation.getParam('mealId');
+  const selectedMeal = MEALS.find(meal => meal.id === mealId);
+
+  return {
+    headerTitle: selectedMeal.title
+  };
 };
 
 const styles = StyleSheet.create({
