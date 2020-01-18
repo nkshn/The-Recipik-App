@@ -2,11 +2,12 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createDrawerNavigator } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import {} from 'react-native-paper';
 
-import { MaterialIcons, AntDesign } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 
@@ -14,6 +15,7 @@ import CategoriesScreen from '../screens/CategoriesScreen';
 import CategoryMealsScreen from '../screens/CategoryMealsScreen';
 import MealDetailsScreen from '../screens/MealDetailsScreen';
 import FavoriteMealsScreen from '../screens/FavoriteMealsScreen';
+import FilterMealsScreen from '../screens/FilterMealsScreen';
 
 const defaultStackOptionsConfig = {
   headerStyle: { backgroundColor: Colors.mainColor },
@@ -52,11 +54,7 @@ const tabScreenConfig = {
       tabBarLabel: 'Meals',
       tabBarIcon: tabInfo => {
         return (
-          <MaterialIcons
-            name="restaurant-menu"
-            size={25}
-            color={tabInfo.tintColor}
-          />
+          <Ionicons name="md-restaurant" size={25} color={tabInfo.tintColor} />
         );
       }
     }
@@ -66,7 +64,7 @@ const tabScreenConfig = {
     navigationOptions: {
       tabBarLabel: 'Favorites',
       tabBarIcon: tabInfo => {
-        return <AntDesign name="star" size={25} color={tabInfo.tintColor} />;
+        return <Ionicons name="md-star" size={25} color={tabInfo.tintColor} />;
       }
     }
   }
@@ -85,4 +83,13 @@ const MealsFavTabNavigation =
         tabBarOptions: { activeTintColor: Colors.mainColor }
       });
 
-export default createAppContainer(MealsFavTabNavigation);
+const FilterStackNavigator = createStackNavigator({
+  Filter: FilterMealsScreen
+});
+
+const MainNavigator = createDrawerNavigator({
+  MealsFavs: MealsFavTabNavigation,
+  Filters: FilterStackNavigator
+});
+
+export default createAppContainer(MainNavigator);

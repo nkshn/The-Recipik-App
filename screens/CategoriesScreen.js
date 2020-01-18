@@ -1,9 +1,10 @@
 import React from 'react';
 import { FlatList, StyleSheet } from 'react-native';
 
-import CategoriesGridTile from '../components/CategoriesGridTile';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import CustomHeaderButton from '../components/CustomHeaderButton';
 
-import Colors from '../constants/colors';
+import CategoriesGridTile from '../components/CategoriesGridTile';
 
 import { CATEGORIES } from '../data/random-data';
 
@@ -34,8 +35,21 @@ const CategoriesScreen = props => {
   );
 };
 
-CategoriesScreen.navigationOptions = {
-  headerTitle: 'Meal Categories'
+CategoriesScreen.navigationOptions = navigationData => {
+  return {
+    headerTitle: 'Meal Categories',
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navigationData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    )
+  };
 };
 
 const styles = StyleSheet.create({});
