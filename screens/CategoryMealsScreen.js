@@ -1,29 +1,10 @@
 import React from 'react';
-import { View, Button, FlatList, StyleSheet } from 'react-native';
 
-import Mealtem from '../components/Mealtem';
+import MealsList from '../components/MealsList';
 
 import { CATEGORIES, MEALS } from '../data/random-data';
 
 const CategoryMealsScreen = props => {
-  const renderMealItem = itemData => {
-    return (
-      <Mealtem
-        title={itemData.item.title}
-        imageUrl={itemData.item.imageUrl}
-        duration={itemData.item.duration}
-        complexity={itemData.item.complexity}
-        affordability={itemData.item.affordability}
-        onSelectSpecialMeal={() => {
-          props.navigation.navigate({
-            routeName: 'MealDetails',
-            params: { mealId: itemData.item.id }
-          });
-        }}
-      />
-    );
-  };
-
   const caterId = props.navigation.getParam('categoryId');
   const selectedCategory = CATEGORIES.find(cat => cat.id === caterId);
 
@@ -31,16 +12,7 @@ const CategoryMealsScreen = props => {
     meal => meal.categoryIds.indexOf(caterId) >= 0
   );
 
-  return (
-    <View>
-      <FlatList
-        data={displayedMeals}
-        renderItem={renderMealItem}
-        keyExtractor={item => item.id}
-        showsVerticalScrollIndicator={false}
-      />
-    </View>
-  );
+  return <MealsList listData={displayedMeals} navigation={props.navigation} />;
 };
 
 CategoryMealsScreen.navigationOptions = navigationData => {
@@ -51,7 +23,5 @@ CategoryMealsScreen.navigationOptions = navigationData => {
     headerTitle: selectedCategory.title + ' Meals'
   };
 };
-
-const styles = StyleSheet.create({});
 
 export default CategoryMealsScreen;
