@@ -11,6 +11,7 @@ import Colors from '../constants/colors';
 
 import Title from '../components/Title';
 import MainButton from '../components/MainButton';
+import CorrectDurationOutput from '../components/CorrectDurationOutput';
 
 const Mealtem = props => {
   return (
@@ -32,7 +33,7 @@ const Mealtem = props => {
               color={Colors.grey}
               style={styles.icons}
             />
-            <Text style={styles.textInfo}>{props.duration} min</Text>
+            <CorrectDurationOutput duration={props.duration} />
           </View>
           <View style={styles.textRowItem}>
             <MaterialCommunityIcons

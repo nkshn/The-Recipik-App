@@ -13,6 +13,7 @@ import Colors from '../constants/colors';
 
 import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
+import CorrectDurationOutput from '../components/CorrectDurationOutput';
 
 const ListItem = props => {
   return (
@@ -35,7 +36,7 @@ const MealDetailsScreen = props => {
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
             <Feather name="clock" size={20} color={'#969696'} />
-            <Text style={styles.textInfo}>{selectedMeal.duration} min</Text>
+            <CorrectDurationOutput duration={selectedMeal.duration} />
           </View>
           <View style={styles.infoRowItem}>
             <MaterialCommunityIcons name="weight" size={24} color={'#969696'} />
@@ -110,7 +111,7 @@ const styles = StyleSheet.create({
     width: '100%'
   },
   infoRowItem: {
-    width: 105,
+    width: 110,
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
