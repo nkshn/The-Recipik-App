@@ -42,7 +42,12 @@ const MealDetailsScreen = props => {
             <Text style={styles.textInfo}>{selectedMeal.complexity}</Text>
           </View>
           <View style={styles.infoRowItem}>
-            <Foundation name="dollar-bill" size={24} color={'#969696'} />
+            <Foundation
+              name="dollar-bill"
+              size={24}
+              color={'#969696'}
+              style={{ top: 3 }}
+            />
             <Text style={styles.textInfo}>{selectedMeal.affordability}</Text>
           </View>
         </View>
