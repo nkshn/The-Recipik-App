@@ -34,30 +34,15 @@ const MealDetailsScreen = props => {
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
-            <Feather
-              name="clock"
-              size={14}
-              color={Colors.grey}
-              style={styles.infoIcons}
-            />
+            <Feather name="clock" size={20} color={'#969696'} />
             <Text style={styles.textInfo}>{selectedMeal.duration} min</Text>
           </View>
           <View style={styles.infoRowItem}>
-            <MaterialCommunityIcons
-              name="weight"
-              size={15}
-              color={Colors.grey}
-              style={[styles.infoIcons, { marginTop: -1 }]}
-            />
+            <MaterialCommunityIcons name="weight" size={24} color={'#969696'} />
             <Text style={styles.textInfo}>{selectedMeal.complexity}</Text>
           </View>
           <View style={styles.infoRowItem}>
-            <Foundation
-              name="dollar-bill"
-              size={21}
-              color={Colors.grey}
-              style={styles.infoIcons}
-            />
+            <Foundation name="dollar-bill" size={24} color={'#969696'} />
             <Text style={styles.textInfo}>{selectedMeal.affordability}</Text>
           </View>
         </View>
@@ -117,26 +102,34 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignSelf: 'center',
     justifyContent: 'space-evenly',
-    width: '80%'
+    width: '100%'
   },
   infoRowItem: {
-    flexDirection: 'row',
+    width: 105,
+    height: 65,
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  infoIcons: {
-    marginRight: 5
+    alignItems: 'center',
+    backgroundColor: '#d7dbe0',
+    borderRadius: 7,
+    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 13,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
   },
   textInfo: {
     fontSize: 15,
-    color: Colors.grey,
+    marginTop: 3,
+    color: '#969696',
     fontFamily: 'lato-light',
     textTransform: 'capitalize'
   },
-
   recipeDetailsContainer: {
     alignSelf: 'center',
-    marginTop: 13
+    marginTop: 17
   },
   recipeDetailsTitle: {
     fontSize: 20,
