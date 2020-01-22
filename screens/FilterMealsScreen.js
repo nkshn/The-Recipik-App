@@ -1,25 +1,114 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Switch, Platform, StyleSheet } from 'react-native';
+
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import CustomHeaderButton from '../components/CustomHeaderButton';
+
+import Title from '../components/Title';
+import Colors from '../constants/colors';
 
 const FilterMealsScreen = props => {
+  const [isGlutenFree, setIsGlutenFree] = useState(false);
+  const [isVegan, setIsVegan] = useState(false);
+  const [isVegetarian, setIsVegetarian] = useState(false);
+  const [isLactoseFree, setIsLactoseFree] = useState(false);
+
+  const FilterSwitch = props => {
+    return (
+      <View style={styles.filtersItem}>
+        <Text style={styles.text}>{props.title}</Text>
+        <Switch
+          value={props.value}
+          onValueChange={props.onChange}
+          trackColor={{ true: Colors.mainColor }}
+          thumbColor={Platform.OS === 'android' ? Colors.mainColor : ''}
+        />
+      </View>
+    );
+  };
+
   return (
-    <View style={styles.screen}>
-      <Text>This is 'FilterMealsScreen.js'</Text>
+    <View>
+      <Title style={styles.title}>Available Filters / Restriction</Title>
+      <View style={styles.filterContainer}>
+        <FilterSwitch
+          title="Gluten Free Meals"
+          value={isGlutenFree}
+          onChange={newValue => setIsGlutenFree(newValue)}
+        />
+        <FilterSwitch
+          title="Vegan Meals"
+          value={isVegan}
+          onChange={newValue => setIsVegan(newValue)}
+        />
+        <FilterSwitch
+          title="Vegetarian Meals"
+          value={isVegetarian}
+          onChange={newValue => setIsVegetarian(newValue)}
+        />
+        <FilterSwitch
+          title="Lactose Free Meals"
+          value={isLactoseFree}
+          onChange={newValue => setIsLactoseFree(newValue)}
+        />
+      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
+  title: {
+    fontSize: 22,
+    textAlign: 'center',
+    margin: 20
+  },
+  filterContainer: {
+    alignItems: 'center'
+  },
+  filtersItem: {
+    width: '85%',
+    marginVertical: 7,
+    paddingVertical: 3,
+    paddingHorizontal: 7,
     alignItems: 'center',
-    backgroundColor: '#2c3e50'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.lighterGreyBackgroud,
+    borderWidth: 1,
+    borderColor: Colors.lighterGreyText,
+    borderRadius: 7
+  },
+  text: {
+    fontSize: 18,
+    color: Colors.grey,
+    fontFamily: 'lato-regular'
   }
 });
 
-FilterMealsScreen.navigationOptions = {
-  headerTitle: 'Meals Filter'
+FilterMealsScreen.navigationOptions = navigationData => {
+  return {
+    headerTitle: 'Meals Filter',
+    headerLeft: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Menu"
+          iconName="ios-menu"
+          onPress={() => {
+            navigationData.navigation.toggleDrawer();
+          }}
+        />
+      </HeaderButtons>
+    ),
+    headerRight: () => (
+      <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
+        <Item
+          title="Save"
+          iconName="md-save"
+          onPress={() => console.log('Saving a filters data')}
+        />
+      </HeaderButtons>
+    )
+  };
 };
 
 export default FilterMealsScreen;
