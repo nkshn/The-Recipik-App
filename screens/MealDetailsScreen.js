@@ -35,18 +35,22 @@ const MealDetailsScreen = props => {
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
-            <Feather name="clock" size={20} color={'#969696'} />
+            <Feather name="clock" size={20} color={Colors.lighterGreyText} />
             <CorrectDurationOutput duration={selectedMeal.duration} />
           </View>
           <View style={styles.infoRowItem}>
-            <MaterialCommunityIcons name="weight" size={24} color={'#969696'} />
+            <MaterialCommunityIcons
+              name="weight"
+              size={24}
+              color={Colors.lighterGreyText}
+            />
             <Text style={styles.textInfo}>{selectedMeal.complexity}</Text>
           </View>
           <View style={styles.infoRowItem}>
             <Foundation
               name="dollar-bill"
               size={24}
-              color={'#969696'}
+              color={Colors.lighterGreyText}
               style={{ top: 3 }}
             />
             <Text style={styles.textInfo}>{selectedMeal.affordability}</Text>
@@ -115,7 +119,7 @@ const styles = StyleSheet.create({
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#d7dbe0',
+    backgroundColor: Colors.lighterGreyBackgroud,
     borderRadius: 7,
     padding: 10,
     paddingVertical: 10,
@@ -129,7 +133,7 @@ const styles = StyleSheet.create({
   textInfo: {
     fontSize: 15,
     marginTop: 3,
-    color: '#969696',
+    color: Colors.lighterGreyText,
     fontFamily: 'lato-light',
     textTransform: 'capitalize'
   },
