@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
 import { enableScreens } from 'react-native-screens';
 
 import { createStore, combineReducers } from 'redux';
@@ -46,16 +45,3 @@ export default function App() {
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  text: {
-    color: '#777',
-    fontFamily: 'lato-regular',
-    fontSize: 20
-  }
-});
