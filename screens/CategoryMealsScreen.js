@@ -1,4 +1,5 @@
 import React from 'react';
+import { View } from 'react-native';
 
 import MealsList from '../components/MealsList';
 
@@ -14,7 +15,28 @@ const CategoryMealsScreen = props => {
     meal => meal.categoryIds.indexOf(caterId) >= 0
   );
 
-  return <MealsList listData={displayedMeals} navigation={props.navigation} />;
+  const dynamicCorrectStyle = value => {
+    if (value > 0) {
+      return {
+        flex: 1,
+        justifyContent: 'flex-start'
+      };
+    } else {
+      return {
+        justifyContent: 'center'
+      };
+    }
+  };
+
+  return (
+    <View style={dynamicCorrectStyle(displayedMeals.length)}>
+      <MealsList
+        listData={displayedMeals}
+        navigation={props.navigation}
+        noItemsTitle="No meals found, check filters"
+      />
+    </View>
+  );
 };
 
 CategoryMealsScreen.navigationOptions = navigationData => {

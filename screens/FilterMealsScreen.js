@@ -1,17 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { View, Text, Switch, Platform, StyleSheet } from 'react-native';
+import { useDispatch } from 'react-redux';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
+
+import { setFilters } from '../store/actions/meals';
 
 import Title from '../components/Title';
 import Colors from '../constants/colors';
 
 const FilterMealsScreen = props => {
+  const { navigation } = props;
+
+  const dispatch = useDispatch();
+
   const [isGlutenFree, setIsGlutenFree] = useState(false);
-  const [isVegan, setIsVegan] = useState(false);
-  const [isVegetarian, setIsVegetarian] = useState(false);
   const [isLactoseFree, setIsLactoseFree] = useState(false);
+  const [isVegetarian, setIsVegetarian] = useState(false);
+  const [isVegan, setIsVegan] = useState(false);
+
+  const saveFilters = useCallback(() => {
+    const appliedFilters = {
+      glutenFree: isGlutenFree,
+      lactoseFree: isLactoseFree,
+      vegetarian: isVegetarian,
+      vegan: isVegan
+    };
+
+    dispatch(setFilters(appliedFilters));
+  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
+
+  useEffect(() => {
+    navigation.setParams({ save: saveFilters });
+  }, [saveFilters]);
 
   const FilterSwitch = props => {
     return (
@@ -67,16 +89,14 @@ const styles = StyleSheet.create({
   },
   filtersItem: {
     width: '85%',
-    marginVertical: 7,
-    paddingVertical: 3,
-    paddingHorizontal: 7,
+    marginVertical: 10,
+    paddingVertical: 7,
+    paddingHorizontal: 10,
     alignItems: 'center',
     flexDirection: 'row',
     justifyContent: 'space-between',
-    backgroundColor: Colors.lighterGreyBackgroud,
-    borderWidth: 1,
-    borderColor: Colors.lighterGreyText,
-    borderRadius: 7
+    borderBottomWidth: 0.3,
+    borderColor: Colors.lighterGreyText
   },
   text: {
     fontSize: 18,
@@ -104,7 +124,7 @@ FilterMealsScreen.navigationOptions = navigationData => {
         <Item
           title="Save"
           iconName="md-save"
-          onPress={() => console.log('Saving a filters data')}
+          onPress={navigationData.navigation.getParam('save')}
         />
       </HeaderButtons>
     )
