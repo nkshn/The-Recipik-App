@@ -34,7 +34,9 @@ const MealDetailsScreen = props => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.screen}>
-        <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+        <View style={styles.imageContainer}>
+          <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
+        </View>
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
@@ -98,11 +100,19 @@ const styles = StyleSheet.create({
     flex: 1,
     marginBottom: 20
   },
+  imageContainer: {
+    borderBottomLeftRadius: 13,
+    borderBottomRightRadius: 13,
+    overflow: 'hidden',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5
+  },
   image: {
     width: '100%',
-    height: 200,
-    borderBottomLeftRadius: 13,
-    borderBottomRightRadius: 13
+    height: 200
   },
   mealTitle: {
     fontSize: 22,
