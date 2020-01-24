@@ -2,6 +2,7 @@ import React from 'react';
 import { View, FlatList } from 'react-native';
 
 import Mealtem from '../components/Mealtem';
+import ListIsEmpty from '../components/ListIsEmpty';
 
 const MealsList = props => {
   const renderMealItem = itemData => {
@@ -29,6 +30,7 @@ const MealsList = props => {
         renderItem={renderMealItem}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={() => <ListIsEmpty />}
       />
     </View>
   );
