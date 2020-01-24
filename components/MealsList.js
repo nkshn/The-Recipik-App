@@ -40,7 +40,7 @@ const MealsList = props => {
         renderItem={renderMealItem}
         keyExtractor={item => item.id}
         showsVerticalScrollIndicator={false}
-        ListEmptyComponent={() => <ListIsEmpty />}
+        ListEmptyComponent={() => <ListIsEmpty title={props.noItemsTitle} />}
       />
     </View>
   );

@@ -7,7 +7,7 @@ import Colors from '../constants/colors';
 const ListIsEmpty = props => {
   return (
     <View style={styles.container}>
-      <Title style={styles.title}>No favorite meals yet</Title>
+      <Title style={styles.title}>{props.title}</Title>
     </View>
   );
 };
