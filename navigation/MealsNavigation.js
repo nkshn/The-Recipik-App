@@ -21,6 +21,7 @@ const defaultStackOptionsConfig = {
   headerStyle: { backgroundColor: Colors.mainColor },
   headerTintColor: Colors.white,
   headerTitleStyle: {
+    width: 225,
     letterSpacing: 1,
     fontFamily: 'lato-bold'
   },
