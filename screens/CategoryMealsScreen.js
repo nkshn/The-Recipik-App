@@ -3,7 +3,7 @@ import { View } from 'react-native';
 
 import MealsList from '../components/MealsList';
 
-import { CATEGORIES, MEALS } from '../data/random-data';
+import { CATEGORIES } from '../data/random-data';
 import { useSelector } from 'react-redux';
 
 const CategoryMealsScreen = props => {
@@ -23,6 +23,7 @@ const CategoryMealsScreen = props => {
       };
     } else {
       return {
+        flex: 1,
         justifyContent: 'center'
       };
     }
