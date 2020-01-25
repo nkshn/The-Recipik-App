@@ -4,7 +4,6 @@ import { View, Text, StyleSheet } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 
-import { MEALS } from '../data/random-data';
 import { useSelector } from 'react-redux';
 
 import MealsList from '../components/MealsList';
@@ -16,12 +15,12 @@ const FavoriteMealsScreen = props => {
   const dynamicCorrectStyle = value => {
     if (value > 0) {
       return {
-        flex: 20, // delete later
+        flex: 1,
         justifyContent: 'flex-start'
       };
     } else {
       return {
-        flex: 20, // delete later
+        flex: 1,
         justifyContent: 'center'
       };
     }
@@ -36,18 +35,13 @@ const FavoriteMealsScreen = props => {
           noItemsTitle="No favorite meals yet"
         />
       </View>
-      <View style={styles.favItemsCounterView}>
-        <Text style={styles.favText}>
-          Favorite Items: {favoritesMealsCounter}
-        </Text>
-      </View>
     </View>
   );
 };
 
 FavoriteMealsScreen.navigationOptions = navigationData => {
   return {
-    headerTitle: 'Your Favorites ' + 2,
+    headerTitle: 'Your Favorites ',
     headerLeft: () => (
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
@@ -67,18 +61,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignContent: 'center',
     flexDirection: 'column'
-  },
-  favText: {
-    fontSize: 16,
-    color: '#777',
-    marginBottom: 5,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    fontFamily: 'lato-regular'
-  },
-  favItemsCounterView: {
-    flex: 1,
-    justifyContent: 'flex-end'
   }
 });
 

@@ -26,13 +26,14 @@ import FavoriteMealsScreen from '../screens/FavoriteMealsScreen';
 import FilterMealsScreen from '../screens/FilterMealsScreen';
 
 import Title from '../components/Title';
+import Badge from '../components/Badge';
 
 const defaultStackOptionsConfig = {
   headerStyle: { backgroundColor: Colors.mainColor },
   headerTintColor: Colors.white,
   headerTitleStyle: {
     right: 15,
-    width: 250,
+    width: 245,
     letterSpacing: 1,
     fontFamily: 'lato-bold'
   },
@@ -90,15 +91,18 @@ const tabScreenConfig = {
         ),
       tabBarIcon: tabInfo => {
         return (
-          <Ionicons
-            name={
-              tabInfo.tintColor === Colors.mainColor
-                ? 'md-star'
-                : 'md-star-outline'
-            }
-            size={25}
-            color={tabInfo.tintColor}
-          />
+          <View>
+            <Badge />
+            <Ionicons
+              name={
+                tabInfo.tintColor === Colors.mainColor
+                  ? 'md-star'
+                  : 'md-star-outline'
+              }
+              size={25}
+              color={tabInfo.tintColor}
+            />
+          </View>
         );
       }
     }
