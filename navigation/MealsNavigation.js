@@ -75,6 +75,7 @@ const tabScreenConfig = {
             name="food"
             size={25}
             color={tabInfo.tintColor}
+            style={{ bottom: 4 }}
           />
         );
       }
