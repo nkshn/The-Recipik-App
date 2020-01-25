@@ -70,7 +70,11 @@ const tabScreenConfig = {
         ),
       tabBarIcon: tabInfo => {
         return (
-          <Ionicons name="md-restaurant" size={25} color={tabInfo.tintColor} />
+          <MaterialCommunityIcons
+            name="food"
+            size={25}
+            color={tabInfo.tintColor}
+          />
         );
       }
     }
@@ -85,7 +89,17 @@ const tabScreenConfig = {
           'Favorites'
         ),
       tabBarIcon: tabInfo => {
-        return <Ionicons name="md-star" size={25} color={tabInfo.tintColor} />;
+        return (
+          <Ionicons
+            name={
+              tabInfo.tintColor === Colors.mainColor
+                ? 'md-star'
+                : 'md-star-outline'
+            }
+            size={25}
+            color={tabInfo.tintColor}
+          />
+        );
       }
     }
   }
@@ -137,12 +151,12 @@ const MainNavigator = createDrawerNavigator(
     MealsFavs: {
       screen: MealsFavTabNavigation,
       navigationOptions: {
-        drawerLabel: 'Favorite Meals',
+        drawerLabel: 'Meals',
         drawerIcon: tabInfo => {
           return (
-            <Ionicons
+            <MaterialCommunityIcons
               size={25}
-              name="md-star-outline"
+              name="food"
               color={tabInfo.tintColor}
             />
           );
@@ -157,7 +171,11 @@ const MainNavigator = createDrawerNavigator(
           return (
             <MaterialCommunityIcons
               size={20}
-              name="filter-outline"
+              name={
+                tabInfo.tintColor === Colors.mainColor
+                  ? 'filter'
+                  : 'filter-outline'
+              }
               color={tabInfo.tintColor}
             />
           );
