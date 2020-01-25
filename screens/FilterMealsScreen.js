@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { View, Text, Switch, Platform, StyleSheet } from 'react-native';
+import { View, Text, Switch, Platform, Alert, StyleSheet } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
@@ -124,7 +124,20 @@ FilterMealsScreen.navigationOptions = navigationData => {
         <Item
           title="Save"
           iconName="md-save"
-          onPress={navigationData.navigation.getParam('save')}
+          onPress={() => {
+            Alert.alert(
+              'Saved!',
+              'Filters were successfully saved!',
+              [
+                {
+                  text: 'Okey',
+                  onPress: navigationData.navigation.getParam('save'),
+                  style: 'default'
+                }
+              ],
+              { cancelable: false }
+            );
+          }}
         />
       </HeaderButtons>
     )
