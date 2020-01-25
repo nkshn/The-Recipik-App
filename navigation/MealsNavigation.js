@@ -1,13 +1,21 @@
 import React from 'react';
-import { Text, Platform } from 'react-native';
+import {
+  View,
+  Text,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+  Image,
+  StyleSheet
+} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { createDrawerNavigator } from 'react-navigation-drawer';
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
 import {} from 'react-native-paper';
 
-import { Ionicons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 
@@ -17,11 +25,14 @@ import MealDetailsScreen from '../screens/MealDetailsScreen';
 import FavoriteMealsScreen from '../screens/FavoriteMealsScreen';
 import FilterMealsScreen from '../screens/FilterMealsScreen';
 
+import Title from '../components/Title';
+
 const defaultStackOptionsConfig = {
   headerStyle: { backgroundColor: Colors.mainColor },
   headerTintColor: Colors.white,
   headerTitleStyle: {
-    width: 225,
+    right: 15,
+    width: 250,
     letterSpacing: 1,
     fontFamily: 'lato-bold'
   },
@@ -101,26 +112,67 @@ const FilterStackNavigator = createStackNavigator(
   { defaultNavigationOptions: defaultStackOptionsConfig }
 );
 
+const customDrawerComponent = props => {
+  return (
+    <SafeAreaView style={styles.saveArea}>
+      <View style={styles.imageContainer}>
+        <Title style={styles.title}>The Meals Application</Title>
+        <Image
+          resizeMode="cover"
+          style={styles.image}
+          source={require('../assets/images/logo.jpg')}
+        />
+      </View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.navigationItemsContainer}>
+          <DrawerItems {...props} />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+  );
+};
+
 const MainNavigator = createDrawerNavigator(
   {
     MealsFavs: {
       screen: MealsFavTabNavigation,
       navigationOptions: {
-        drawerLabel: 'Favorite Meals'
+        drawerLabel: 'Favorite Meals',
+        drawerIcon: tabInfo => {
+          return (
+            <Ionicons
+              size={25}
+              name="md-star-outline"
+              color={tabInfo.tintColor}
+            />
+          );
+        }
       }
     },
     Filters: {
       screen: FilterStackNavigator,
       navigationOptions: {
-        drawerLabel: 'Filters'
+        drawerLabel: 'Filters',
+        drawerIcon: tabInfo => {
+          return (
+            <MaterialCommunityIcons
+              size={20}
+              name="filter-outline"
+              color={tabInfo.tintColor}
+            />
+          );
+        }
       }
     }
   },
   {
+    contentComponent: customDrawerComponent,
     contentOptions: {
       inactiveTintColor: Colors.grey,
       activeTintColor: Colors.mainColor,
+      activeBackgroundColor: '#d95b5261',
       labelStyle: {
+        right: 20,
         letterSpacing: 1,
         fontSize: 16,
         fontFamily: 'lato-regular'
@@ -128,5 +180,31 @@ const MainNavigator = createDrawerNavigator(
     }
   }
 );
+
+const styles = StyleSheet.create({
+  saveArea: {
+    flex: 1,
+    paddingTop: Platform.OS === 'android' && Platform.Version >= 21 ? 25 : ''
+  },
+  imageContainer: {
+    marginTop: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 20
+  },
+  title: {
+    letterSpacing: 2,
+    marginVertical: 20,
+    fontFamily: 'lato-bold'
+  },
+  image: {
+    height: 120,
+    width: 120,
+    borderRadius: 60
+  },
+  navigationItemsContainer: {
+    marginTop: -5
+  }
+});
 
 export default createAppContainer(MainNavigator);
