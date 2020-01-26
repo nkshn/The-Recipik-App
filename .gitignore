@@ -12,9 +12,3 @@ web-report/
 
 # macOS
 .DS_Store
-
-# Data
-data/*
-
-# Classes
-models/*
