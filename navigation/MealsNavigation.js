@@ -32,7 +32,7 @@ const defaultStackOptionsConfig = {
   headerStyle: { backgroundColor: Colors.mainColor },
   headerTintColor: Colors.white,
   headerTitleStyle: {
-    right: 15,
+    right: Platform.OS === 'android' ? 15 : 0,
     width: 245,
     letterSpacing: 1,
     fontFamily: 'lato-bold'
