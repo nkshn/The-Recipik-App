@@ -58,14 +58,17 @@ const MealDetailsScreen = props => {
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
-            <Feather name="clock" size={20} color={Colors.lighterGreyText} />
-            <CorrectDurationOutput duration={selectedMeal.duration} />
+            <Feather name="clock" size={20} color={Colors.white} />
+            <CorrectDurationOutput
+              style={{ color: Colors.white }}
+              duration={selectedMeal.duration}
+            />
           </View>
           <View style={styles.infoRowItem}>
             <MaterialCommunityIcons
               name="weight"
               size={24}
-              color={Colors.lighterGreyText}
+              color={Colors.white}
             />
             <Text style={styles.textInfo}>{selectedMeal.complexity}</Text>
           </View>
@@ -73,13 +76,18 @@ const MealDetailsScreen = props => {
             <Foundation
               name="dollar-bill"
               size={24}
-              color={Colors.lighterGreyText}
+              color={Colors.white}
               style={{ top: 3 }}
             />
             <Text style={styles.textInfo}>{selectedMeal.affordability}</Text>
           </View>
         </View>
-        <View style={styles.recipeDetailsContainer}>
+        <View
+          style={[
+            styles.recipeDetailsContainer,
+            { width: '77%', justifyContent: 'flex-start' }
+          ]}
+        >
           <Title style={styles.recipeDetailsTitle}>ingredients</Title>
           {selectedMeal.ingredients.map(ingredient => (
             <ListItem data={ingredient} key={ingredient} />
@@ -135,8 +143,9 @@ const styles = StyleSheet.create({
     height: 200
   },
   mealTitle: {
-    fontSize: 22,
-    marginTop: 10,
+    fontSize: 24,
+    marginTop: 17,
+    marginBottom: 5,
     textAlign: 'center'
   },
   infoGraphicContainer: {
@@ -151,27 +160,27 @@ const styles = StyleSheet.create({
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: Colors.lighterGreyBackgroud,
+    backgroundColor: Colors.blockYellow,
     borderRadius: 7,
     padding: 10,
     paddingVertical: 10,
     paddingHorizontal: 13,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
+    shadowOpacity: 0.23,
+    shadowRadius: 2.62,
+    elevation: 4
   },
   textInfo: {
     fontSize: 15,
     marginTop: 3,
-    color: Colors.lighterGreyText,
+    color: Colors.white,
     fontFamily: 'lato-light',
     textTransform: 'capitalize'
   },
   recipeDetailsContainer: {
     alignSelf: 'center',
-    marginTop: 17
+    marginTop: 23
   },
   recipeDetailsTitle: {
     fontSize: 20,
@@ -180,7 +189,7 @@ const styles = StyleSheet.create({
     fontFamily: 'lato-regular',
     textTransform: 'capitalize',
     letterSpacing: 1,
-    marginBottom: 7
+    marginBottom: 8
   },
   recipeDetailsRenderItem: {
     marginVertical: 2,

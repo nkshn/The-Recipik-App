@@ -5,5 +5,6 @@ export default {
   grey: '#777',
   white: '#fff',
   lighterGreyText: '#969696',
-  lighterGreyBackgroud: '#d7dbe0'
+  lighterGreyBackgroud: '#d7dbe0',
+  blockYellow: '#f7b31e',
 };

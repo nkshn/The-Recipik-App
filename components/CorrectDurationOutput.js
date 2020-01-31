@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 
+import Colors from '../constants/colors';
+
 const CorrectDurationOutput = props => {
   const { duration } = props;
 
@@ -15,17 +17,21 @@ const CorrectDurationOutput = props => {
 
     if (minutes > 0) {
       outputDurationItem = (
-        <Text style={styles.text}>
+        <Text style={{ ...styles.text, ...props.style }}>
           {Math.floor(hours)} h. {Math.floor(minutes)} min
         </Text>
       );
     } else {
       outputDurationItem = (
-        <Text style={styles.text}>{Math.floor(hours)} hours</Text>
+        <Text style={{ ...styles.text, ...props.style }}>
+          {Math.floor(hours)} hours
+        </Text>
       );
     }
   } else {
-    outputDurationItem = <Text style={styles.text}>{duration} min</Text>;
+    outputDurationItem = (
+      <Text style={{ ...styles.text, ...props.style }}>{duration} min</Text>
+    );
   }
 
   return <View>{outputDurationItem}</View>;
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     marginTop: 3,
-    color: '#969696',
+    color: Colors.grey,
     fontFamily: 'lato-light',
     textTransform: 'lowercase'
   }

@@ -28,20 +28,19 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   button: {
-    borderWidth: 1,
-    borderColor: Colors.mainColor,
+    borderWidth: 0.7,
+    borderColor: Colors.grey,
+    backgroundColor: Colors.mainColor,
     borderRadius: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-    marginHorizontal: 50,
+    paddingHorizontal: 20,
+    paddingVertical: 11,
     alignItems: 'center',
     justifyContent: 'center'
   },
   title: {
-    fontSize: 14,
+    fontSize: 16,
     letterSpacing: 1,
-    color: Colors.grey,
-    textTransform: 'uppercase',
+    color: Colors.white,
     fontFamily: 'lato-bold'
   }
 });

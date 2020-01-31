@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
 
 import {
   Feather,
@@ -24,6 +24,22 @@ const Mealtem = props => {
             resizeMode="cover"
           />
         </View>
+        {/* <View style={{ backgroundColor: 'red', alignSelf: 'center' }}>
+          <ImageBackground
+            source={{ uri: props.imageUrl }}
+            style={{ width: 325, height: 185 }}
+          >
+            <Text
+              style={{
+                color: 'red',
+                backgroundColor: 'black',
+                textAlign: 'right'
+              }}
+            >
+              {props.title}
+            </Text>
+          </ImageBackground>
+        </View> */}
         <Title style={styles.title}>{props.title}</Title>
         <View style={styles.textContainer}>
           <View style={styles.textRowItem}>
@@ -55,11 +71,7 @@ const Mealtem = props => {
           </View>
         </View>
         <View style={styles.buttonContainer}>
-          <MainButton
-            title="View Recipe"
-            style={styles.button}
-            onPress={props.onSelectSpecialMeal}
-          />
+          <MainButton title="Let's Cook!" onPress={props.onSelectSpecialMeal} />
         </View>
       </View>
     </View>
@@ -69,7 +81,7 @@ const Mealtem = props => {
 const styles = StyleSheet.create({
   screen: {
     paddingHorizontal: 10,
-    paddingVertical: 20,
+    paddingVertical: 17,
     alignItems: 'center'
   },
   item: {
@@ -83,20 +95,23 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     overflow: 'hidden',
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3
   },
   image: {
     width: '100%',
     height: '100%'
   },
   title: {
+    fontSize: 20,
     textAlign: 'center',
-    marginVertical: 7
+    marginTop: 15,
+    marginBottom: 10
   },
   textContainer: {
+    marginBottom: 10,
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -116,9 +131,6 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     alignItems: 'center'
-  },
-  button: {
-    marginTop: 10
   }
 });
 
