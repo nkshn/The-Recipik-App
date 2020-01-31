@@ -15,6 +15,7 @@ import Colors from '../constants/colors';
 import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
+import ImageCarousel from '../components/ImageCarousel';
 
 const ListItem = props => {
   return (
@@ -52,9 +53,12 @@ const MealDetailsScreen = props => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.screen}>
+        <ImageCarousel />
+        {/*
         <View style={styles.imageContainer}>
           <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
         </View>
+        */}
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
