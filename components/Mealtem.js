@@ -11,6 +11,7 @@ import Colors from '../constants/colors';
 
 import Title from '../components/Title';
 import MainButton from '../components/MainButton';
+import StarsRating from '../components/StarsRating';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
 
 const Mealtem = props => {
@@ -40,6 +41,11 @@ const Mealtem = props => {
             </Text>
           </ImageBackground>
         </View> */}
+        <StarsRating
+          size={17}
+          rating={props.rating}
+          style={styles.ratingContainer}
+        />
         <Title style={styles.title}>{props.title}</Title>
         <View style={styles.textContainer}>
           <View style={styles.textRowItem}>
@@ -104,11 +110,14 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%'
   },
+  ratingContainer: {
+    marginTop: 7,
+    marginBottom: 3
+  },
   title: {
-    fontSize: 20,
+    fontSize: 21,
     textAlign: 'center',
-    marginTop: 15,
-    marginBottom: 10
+    marginBottom: 6
   },
   textContainer: {
     marginBottom: 10,

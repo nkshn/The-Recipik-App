@@ -43,7 +43,8 @@ export const MEALS = [
     false,
     true,
     true,
-    true
+    true,
+    1.7
   ),
   new Meal(
     'm2',
@@ -68,7 +69,8 @@ export const MEALS = [
     false,
     false,
     false,
-    false
+    false,
+    4.7
   ),
   new Meal(
     'm3',
@@ -96,7 +98,8 @@ export const MEALS = [
     false,
     false,
     false,
-    true
+    true,
+    5
   ),
   new Meal(
     'm4',
@@ -128,7 +131,8 @@ export const MEALS = [
     false,
     false,
     false,
-    false
+    false,
+    4
   ),
   new Meal(
     'm5',
@@ -159,7 +163,8 @@ export const MEALS = [
     true,
     false,
     true,
-    true
+    true,
+    3
   ),
   new Meal(
     'm6',
@@ -168,7 +173,7 @@ export const MEALS = [
     'affordable',
     'hard',
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
-    245, // 240
+    245,
     [
       '4 Sheets of Gelatine',
       '150ml Orange Juice',
@@ -191,7 +196,8 @@ export const MEALS = [
     true,
     false,
     true,
-    false
+    false,
+    3
   ),
   new Meal(
     'm7',
@@ -219,7 +225,8 @@ export const MEALS = [
     true,
     false,
     true,
-    false
+    false,
+    1
   ),
   new Meal(
     'm8',
@@ -249,7 +256,8 @@ export const MEALS = [
     true,
     false,
     false,
-    true
+    true,
+    2
   ),
   new Meal(
     'm9',
@@ -304,7 +312,7 @@ export const MEALS = [
     'luxurious',
     'simple',
     'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
-    120, // 30
+    120,
     [
       'White and Green Asparagus',
       '30g Pine Nuts',
@@ -324,6 +332,7 @@ export const MEALS = [
     true,
     true,
     true,
-    true
+    true,
+    5
   )
 ];

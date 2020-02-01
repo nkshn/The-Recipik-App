@@ -16,6 +16,7 @@ import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
 import ImageCarousel from '../components/ImageCarousel';
+import StarsRating from '../components/StarsRating';
 
 const ListItem = props => {
   return (
@@ -53,12 +54,16 @@ const MealDetailsScreen = props => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.screen}>
-        <ImageCarousel />
-        {/*
+        {/* <ImageCarousel /> */}
+        {/* TODO: Add normal image slider */}
         <View style={styles.imageContainer}>
           <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
         </View>
-        */}
+        <StarsRating
+          size={20}
+          style={styles.ratingContainer}
+          rating={selectedMeal.rating}
+        />
         <Title style={styles.mealTitle}>{selectedMeal.title}</Title>
         <View style={styles.infoGraphicContainer}>
           <View style={styles.infoRowItem}>
@@ -146,18 +151,20 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 200
   },
+  ratingContainer: {
+    marginTop: 10,
+    marginBottom: 5
+  },
   mealTitle: {
     fontSize: 24,
-    marginTop: 17,
-    marginBottom: 5,
+    marginBottom: 15,
     textAlign: 'center'
   },
   infoGraphicContainer: {
-    marginTop: 10,
-    flexDirection: 'row',
+    width: '100%',
     alignSelf: 'center',
-    justifyContent: 'space-evenly',
-    width: '100%'
+    flexDirection: 'row',
+    justifyContent: 'space-evenly'
   },
   infoRowItem: {
     width: 110,
@@ -170,10 +177,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 13,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.23,
-    shadowRadius: 2.62,
-    elevation: 4
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3
   },
   textInfo: {
     fontSize: 15,

@@ -12,7 +12,8 @@ class Meal {
     isGlutenFree,
     isVegan,
     isVegetarian,
-    isLactoseFree
+    isLactoseFree,
+    rating
   ) {
     this.id = id;
     this.categoryIds = categoryIds;
@@ -27,6 +28,7 @@ class Meal {
     this.isVegan = isVegan;
     this.isVegetarian = isVegetarian;
     this.isLactoseFree = isLactoseFree;
+    this.rating = rating;
   }
 }
 

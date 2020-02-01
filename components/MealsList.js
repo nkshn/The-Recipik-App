@@ -19,6 +19,7 @@ const MealsList = props => {
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
         affordability={itemData.item.affordability}
+        rating={itemData.item.rating}
         onSelectSpecialMeal={() => {
           props.navigation.navigate({
             routeName: 'MealDetails',
