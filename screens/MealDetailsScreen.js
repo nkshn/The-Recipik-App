@@ -15,7 +15,6 @@ import Colors from '../constants/colors';
 import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
-import ImageCarousel from '../components/ImageCarousel';
 import StarsRating from '../components/StarsRating';
 
 const ListItem = props => {
