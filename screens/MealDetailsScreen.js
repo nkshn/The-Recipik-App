@@ -54,8 +54,6 @@ const MealDetailsScreen = props => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={styles.screen}>
-        {/* <ImageCarousel /> */}
-        {/* TODO: Add normal image slider */}
         <View style={styles.imageContainer}>
           <Image source={{ uri: selectedMeal.imageUrl }} style={styles.image} />
         </View>
