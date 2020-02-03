@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image, ImageBackground, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet } from 'react-native';
 
 import {
   Feather,
@@ -25,22 +25,6 @@ const Mealtem = props => {
             resizeMode="cover"
           />
         </View>
-        {/* <View style={{ backgroundColor: 'red', alignSelf: 'center' }}>
-          <ImageBackground
-            source={{ uri: props.imageUrl }}
-            style={{ width: 325, height: 185 }}
-          >
-            <Text
-              style={{
-                color: 'red',
-                backgroundColor: 'black',
-                textAlign: 'right'
-              }}
-            >
-              {props.title}
-            </Text>
-          </ImageBackground>
-        </View> */}
         <StarsRating
           size={17}
           rating={props.rating}

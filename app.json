@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "The Meals App",
-    "slug": "the-meals",
+    "name": "The Meals App (v2.0)",
+    "slug": "the-meals-2",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": [
