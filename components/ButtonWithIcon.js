@@ -27,7 +27,7 @@ const ButtonWithIcon = props => {
           <View style={styles.buttonContent}>
             <Ionicons
               name={iconName}
-              size={21}
+              size={20}
               color={Colors.white}
               style={{ ...styles.icon, ...styleIcon }}
             />
@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
   },
   buttonBody: {
     borderRadius: 7,
-    paddingVertical: 7,
+    paddingVertical: 10,
     paddingHorizontal: 17
   },
   buttonContent: {
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     marginRight: 10
   },
   title: {
-    fontSize: 21,
+    fontSize: 20,
     fontFamily: 'lato-regular',
     color: Colors.white
   }

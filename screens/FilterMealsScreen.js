@@ -24,7 +24,7 @@ import { setFilters } from '../store/actions/meals';
 import Title from '../components/Title';
 import Colors from '../constants/colors';
 import ButtonWithIcon from '../components/ButtonWithIcon';
-import TouchableComponent from '../components/TouchableComponent';
+import FilterChoosedItem from '../components/FilterChoosedItem';
 
 const FilterMealsScreen = props => {
   const { navigation } = props;
@@ -65,7 +65,9 @@ const FilterMealsScreen = props => {
     );
   };
 
-  const [isActiveComponent, setIsActiveComponent] = useState(false);
+  const [isAffordableActive, setIsAffordableActive] = useState(false);
+  const [isPriceyActive, setIsPriceyActive] = useState(false);
+  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -125,79 +127,21 @@ const FilterMealsScreen = props => {
         <View style={styles.filtersChoosingContainer}>
           <Title style={styles.subTitle}>choose affordability:</Title>
           <View style={styles.filtersChoosingRow}>
-            <TouchableComponent
-              activeOpacity={0.7}
-              style={{ flex: 1 }}
-              onPress={() => console.log('You chose affordability item')}
-            >
-              <View
-                style={[
-                  styles.filtersChoosingRowItem,
-                  {
-                    shadowColor: '#000',
-                    shadowOffset: { width: 0, height: 1 },
-                    shadowOpacity: 0.22,
-                    shadowRadius: 2.22,
-                    elevation: 3,
-                    backgroundColor: Colors.blockYellow,
-                    borderWidth: 1,
-                    borderColor: Colors.mainColor
-                  }
-                ]}
-              >
-                <View
-                  style={{
-                    backgroundColor: Colors.mainColor,
-                    position: 'absolute',
-                    zIndex: 5,
-                    width: 20,
-                    height: 20,
-                    borderRadius: 50,
-                    bottom: 50,
-                    left: 90,
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}
-                >
-                  <Ionicons
-                    name={
-                      Platform.OS === 'android'
-                        ? 'md-checkmark'
-                        : 'ios-checkmark'
-                    }
-                    size={18}
-                    color={Colors.white}
-                  />
-                </View>
-                <Foundation
-                  name="dollar-bill"
-                  size={24}
-                  color={Colors.white}
-                  // color={Colors.mainColor}
-                />
-                <Text
-                  style={[styles.filterChoosingText, { color: Colors.white }]}
-                >
-                  affordable
-                </Text>
-              </View>
-            </TouchableComponent>
-            <View style={styles.filtersChoosingRowItem}>
-              <Foundation
-                name="dollar-bill"
-                size={24}
-                color={Colors.mainColor}
-              />
-              <Text style={styles.filterChoosingText}>pricey</Text>
-            </View>
-            <View style={styles.filtersChoosingRowItem}>
-              <Foundation
-                name="dollar-bill"
-                size={24}
-                color={Colors.mainColor}
-              />
-              <Text style={styles.filterChoosingText}>luxurious</Text>
-            </View>
+            <FilterChoosedItem
+              title="affordable"
+              isActiveItem={isAffordableActive}
+              onPress={() => setIsAffordableActive(!isAffordableActive)}
+            />
+            <FilterChoosedItem
+              title="pricey"
+              isActiveItem={isPriceyActive}
+              onPress={() => setIsPriceyActive(!isPriceyActive)}
+            />
+            <FilterChoosedItem
+              title="luxurious"
+              isActiveItem={isLuxuriousActive}
+              onPress={() => setIsLuxuriousActive(!isLuxuriousActive)}
+            />
           </View>
         </View>
         <View style={styles.buttonsContainer}>
@@ -210,8 +154,8 @@ const FilterMealsScreen = props => {
             iconName={Platform.OS === 'android' ? 'md-close' : 'ios-close'}
           />
           <ButtonWithIcon
-            title="Save"
-            styleButton={styles.buttonSave}
+            title="Apply"
+            styleButton={styles.buttonApply}
             styleTitle={{ color: Colors.white }}
             styleIcon={{ color: Colors.white, top: 0.3 }}
             onPress={() => console.log('Pressed button: Save')}
@@ -263,11 +207,12 @@ const styles = StyleSheet.create({
   },
   filtersChoosingRow: {
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    marginTop: 15
+    justifyContent: 'space-evenly', // space-between
+    marginTop: 15,
+    marginLeft: -3 // maybe delete later
   },
   filtersChoosingRowItem: {
-    width: 103,
+    width: 102,
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
@@ -292,10 +237,13 @@ const styles = StyleSheet.create({
   },
   buttonReset: {
     borderWidth: 1,
-    borderColor: Colors.mainColor,
     borderColor: Colors.mainColor
   },
-  buttonSave: { backgroundColor: 'green' }
+  buttonApply: {
+    borderWidth: 1,
+    borderColor: Colors.applyButtonGreen,
+    backgroundColor: Colors.applyButtonGreen
+  }
 });
 
 FilterMealsScreen.navigationOptions = navigationData => {

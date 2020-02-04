@@ -7,4 +7,5 @@ export default {
   lighterGreyText: '#969696',
   lighterGreyBackgroud: '#d7dbe0',
   blockYellow: '#f7b31e',
+  applyButtonGreen: '#3ed667'
 };
