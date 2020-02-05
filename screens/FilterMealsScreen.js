@@ -36,6 +36,10 @@ const FilterMealsScreen = props => {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
 
+  const [isAffordableActive, setIsAffordableActive] = useState(false);
+  const [isPriceyActive, setIsPriceyActive] = useState(false);
+  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false);
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
@@ -64,10 +68,6 @@ const FilterMealsScreen = props => {
       </View>
     );
   };
-
-  const [isAffordableActive, setIsAffordableActive] = useState(false);
-  const [isPriceyActive, setIsPriceyActive] = useState(false);
-  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false);
 
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
@@ -158,7 +158,20 @@ const FilterMealsScreen = props => {
             styleButton={styles.buttonApply}
             styleTitle={{ color: Colors.white }}
             styleIcon={{ color: Colors.white, top: 0.3 }}
-            onPress={() => console.log('Pressed button: Save')}
+            onPress={() => {
+              Alert.alert(
+                'Saved!',
+                'Filters were successfully saved!',
+                [
+                  {
+                    text: 'Okey',
+                    onPress: saveFilters,
+                    style: 'default'
+                  }
+                ],
+                { cancelable: false }
+              );
+            }}
             iconName={
               Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'
             }
@@ -173,7 +186,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 22,
     textAlign: 'center',
-    margin: 20
+    marginTop: 20,
+    marginBottom: 10,
+    marginHorizontal: 20
   },
   filterSwitchContainer: {
     alignItems: 'center'
@@ -208,8 +223,8 @@ const styles = StyleSheet.create({
   filtersChoosingRow: {
     flexDirection: 'row',
     justifyContent: 'space-evenly', // space-between
-    marginTop: 15,
-    marginLeft: -3 // maybe delete later
+    marginTop: 15
+    // marginLeft: -3 // maybe delete later
   },
   filtersChoosingRowItem: {
     width: 102,

@@ -1,5 +1,12 @@
 import React from 'react';
-import { View, Text, Platform, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Platform,
+  Animated,
+  Easing,
+  StyleSheet
+} from 'react-native';
 import { Foundation, Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
@@ -36,6 +43,7 @@ const FilterChoosedItem = props => {
         <Foundation
           size={24}
           name="dollar-bill"
+          style={{ top: -1 }}
           color={isActiveItem === true ? Colors.white : Colors.mainColor}
         />
         <Text
