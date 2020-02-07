@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   View,
   Text,
@@ -40,6 +40,54 @@ const FilterMealsScreen = props => {
   const [isChallengingActive, setIsChallengingActive] = useState(false); // true
   const [isHardActive, setIsHardActive] = useState(false); // true
 
+  // Previous Filters Variables
+  const prevGluten = useRef();
+  const prevLactose = useRef();
+  const prevVegetarian = useRef();
+  const prevVegan = useRef();
+
+  const prevAffordable = useRef();
+  const prevPricey = useRef();
+  const prevLuxurious = useRef();
+
+  const prevSimple = useRef();
+  const prevChallenging = useRef();
+  const prevHard = useRef();
+
+  // Previous Filters functions
+  const setPreviousFilters = () => {
+    prevGluten.current = isGlutenFree;
+    prevLactose.current = isLactoseFree;
+    prevVegetarian.current = isVegetarian;
+    prevVegan.current = isVegan;
+
+    // Affordability
+    prevAffordable.current = isAffordableActive;
+    prevPricey.current = isPriceyActive;
+    prevLuxurious.current = isLuxuriousActive;
+
+    // Complexity
+    prevSimple.current = isSimpleActive;
+    prevChallenging.current = isChallengingActive;
+    prevHard.current = isHardActive;
+  };
+  const cancelUserFiltersChoice = () => {
+    setIsGlutenFree(prevGluten.current);
+    setIsLactoseFree(prevLactose.current);
+    setIsVegetarian(prevVegetarian.current);
+    setIsVegan(prevVegan.current);
+
+    // Affordability
+    setIsAffordableActive(prevAffordable.current);
+    setIsPriceyActive(prevPricey.current);
+    setIsLuxuriousActive(prevLuxurious.current);
+
+    // Complexity
+    setIsSimpleActive(prevSimple.current);
+    setIsChallengingActive(prevChallenging.current);
+    setIsHardActive(prevHard.current);
+  };
+
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
@@ -57,17 +105,7 @@ const FilterMealsScreen = props => {
       challenging: isChallengingActive,
       hard: isHardActive
     };
-
-    console.log('---- Affordability ----');
-    console.log('afforgable: ' + appliedFilters.affordable);
-    console.log('pricey: ' + appliedFilters.pricey);
-    console.log('luxurious: ' + appliedFilters.luxurious + '\n');
-
-    console.log('---- Complexity ----');
-    console.log('simple: ' + appliedFilters.simple);
-    console.log('challenging: ' + appliedFilters.challenging);
-    console.log('hard: ' + appliedFilters.hard + '\n');
-
+    setPreviousFilters();
     dispatch(setFilters(appliedFilters));
   }, [
     isGlutenFree,
@@ -186,11 +224,11 @@ const FilterMealsScreen = props => {
         </View>
         <View style={styles.buttonsContainer}>
           <ButtonWithIcon
-            title="Reset"
-            styleButton={styles.buttonReset}
+            title="Cancel"
+            styleButton={styles.buttonCancel}
             styleTitle={{ color: Colors.mainColor }}
             styleIcon={{ color: Colors.mainColor, top: 0.3 }}
-            onPress={() => console.log('Pressed button: Reset')}
+            onPress={cancelUserFiltersChoice}
             iconName={Platform.OS === 'android' ? 'md-close' : 'ios-close'}
           />
           <ButtonWithIcon
@@ -290,7 +328,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-evenly'
   },
-  buttonReset: {
+  buttonCancel: {
     borderWidth: 1,
     borderColor: Colors.mainColor
   },
