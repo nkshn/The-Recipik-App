@@ -24,9 +24,9 @@ const mealsReducer = (state = initialState, action) => {
     case SET_FILTERS:
       const appliedFilters = action.filters;
 
-      // const testFindArray = state.meals;
-
-      const testFindArray = state.meals.filter(meal => {
+      // const complexityAffordabilityFilter = state.meals;
+      const complexityAffordabilityFilter = state.meals.filter(meal => {
+        // Affordability Checkers
         if ((appliedFilters.affordable && appliedFilters.luxurious) && (meal.isAffordable || meal.isLuxurious)) {
           return true;
         }
@@ -39,14 +39,33 @@ const mealsReducer = (state = initialState, action) => {
         if (appliedFilters.luxurious && meal.isLuxurious) {
           return true;
         }
-        /* Testing */
+
+        // Complexity Checkers
+        if ((appliedFilters.simple && appliedFilters.hard) && (meal.isSimple || meal.isHard)) {
+          return true;
+        }
+        if (appliedFilters.simple && meal.isSimple) {
+          return true;
+        }
+        if (appliedFilters.challenging && meal.isChallenging) {
+          return true;
+        }
+        if (appliedFilters.hard && meal.isHard) {
+          return true;
+        }
+
+        // Checkers if all Affordability items is disabled
         if (!appliedFilters.affordable && !appliedFilters.pricey && !appliedFilters.luxurious) {
+          return true;
+        }
+        // Checkers if all Complexity items is disabled
+        if (!appliedFilters.simple && !appliedFilters.challenging && !appliedFilters.hard) {
           return true;
         }
         return false;
       });
 
-      const updatedFilteredMeals = testFindArray.filter(meal => {
+      const updatedFilteredMeals = complexityAffordabilityFilter.filter(meal => {
         if (appliedFilters.glutenFree && !meal.isGlutenFree) {
           return false;
         }
@@ -63,9 +82,6 @@ const mealsReducer = (state = initialState, action) => {
       });
 
       return { ...state, filteredMeals: updatedFilteredMeals };
-
-    // return { ...state, filteredMeals: testFindArray }; // WORKS FINE!!!!!
-    // return { ...state, filteredMeals: updatedFilteredMeals };
     default:
       return state;
   }
