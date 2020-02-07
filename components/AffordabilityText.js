@@ -1,21 +1,19 @@
 import React from 'react';
 import { Text } from 'react-native';
 
-const AffordabilityTex = props => {
+const AffordabilityText = props => {
   const { affordable, pricey, luxurious } = props;
   let correctTextOutput;
 
   if (affordable) {
     correctTextOutput = 'afforgable';
-  }
-  else if (pricey) {
+  } else if (pricey) {
     correctTextOutput = 'pricey';
-  }
-  else if (luxurious) {
+  } else if (luxurious) {
     correctTextOutput = 'luxurious';
   }
 
-  return <Text style={props.style}>{correctTextOutput}</Text>
+  return <Text style={props.style}>{correctTextOutput}</Text>;
 };
 
-export default AffordabilityTex;
+export default AffordabilityText;

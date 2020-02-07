@@ -49,7 +49,7 @@ export const MEALS = [
     false,
     false,
     // Complexity
-    true,
+    true, // true
     false,
     false
   ),
@@ -57,7 +57,7 @@ export const MEALS = [
     'm2',
     ['c2'],
     'Toast Hawaii',
-    1, // 'simple',
+    2, // 'simple',
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     10,
     [
@@ -82,8 +82,8 @@ export const MEALS = [
     false,
     false,
     // Complexity
-    true,
-    false,
+    false, // true
+    true, // false
     false
   ),
   new Meal(
@@ -166,7 +166,7 @@ export const MEALS = [
     'm5',
     ['c2', 'c5', 'c10'],
     'Salad with Smoked Salmon',
-    1, // 'simple',
+    3, // 'simple',
     'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
     15,
     [
@@ -197,9 +197,9 @@ export const MEALS = [
     true, // false
     false, // true
     // Complexity
-    true,
-    false,
-    false
+    false, // true
+    false, // false
+    true // false
   ),
   new Meal(
     'm6',
