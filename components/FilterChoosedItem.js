@@ -3,13 +3,12 @@ import {
   View,
   Text,
   Platform,
-  Animated,
-  Easing,
   StyleSheet
 } from 'react-native';
 import { Foundation, Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
+import AffordabilityText from "../components/AffordabilityText";
 import TouchableComponent from '../components/TouchableComponent';
 
 const FilterChoosedItem = props => {
@@ -19,7 +18,7 @@ const FilterChoosedItem = props => {
     return (
       <View style={styles.activeBadgeContainer}>
         <Ionicons
-          size={15} // 16
+          size={15}
           color={Colors.white}
           name={Platform.OS === 'android' ? 'md-checkmark' : 'ios-checkmark'}
         />
@@ -52,7 +51,7 @@ const FilterChoosedItem = props => {
             { color: isActiveItem === true ? Colors.white : Colors.mainColor }
           ]}
         >
-          {title}
+          {props.title}
         </Text>
       </View>
     </TouchableComponent>
@@ -92,11 +91,11 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.mainColor,
     position: 'absolute',
     zIndex: 5,
-    width: 17, // 20
-    height: 17, // 20
+    width: 18, // 20 - 17
+    height: 18, // 20 - 17
     borderRadius: 50,
-    bottom: 53, // 50
-    left: 92, // 90
+    bottom: 51, // 50 - 53
+    left: 91, // 90 - 92
     alignItems: 'center',
     justifyContent: 'center'
   }

@@ -23,7 +23,30 @@ const mealsReducer = (state = initialState, action) => {
       }
     case SET_FILTERS:
       const appliedFilters = action.filters;
-      const updatedFilteredMeals = state.meals.filter(meal => {
+
+      // const testFindArray = state.meals;
+
+      const testFindArray = state.meals.filter(meal => {
+        if ((appliedFilters.affordable && appliedFilters.luxurious) && (meal.isAffordable || meal.isLuxurious)) {
+          return true;
+        }
+        if (appliedFilters.affordable && meal.isAffordable) {
+          return true;
+        }
+        if (appliedFilters.pricey && meal.isPricey) {
+          return true;
+        }
+        if (appliedFilters.luxurious && meal.isLuxurious) {
+          return true;
+        }
+        /* Testing */
+        if (!appliedFilters.affordable && !appliedFilters.pricey && !appliedFilters.luxurious) {
+          return true;
+        }
+        return false;
+      });
+
+      const updatedFilteredMeals = testFindArray.filter(meal => {
         if (appliedFilters.glutenFree && !meal.isGlutenFree) {
           return false;
         }
@@ -38,7 +61,11 @@ const mealsReducer = (state = initialState, action) => {
         }
         return true;
       });
+
       return { ...state, filteredMeals: updatedFilteredMeals };
+
+    // return { ...state, filteredMeals: testFindArray }; // WORKS FINE!!!!!
+    // return { ...state, filteredMeals: updatedFilteredMeals };
     default:
       return state;
   }

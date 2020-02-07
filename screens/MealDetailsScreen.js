@@ -15,6 +15,7 @@ import Colors from '../constants/colors';
 import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
+import AffordabilityText from '../components/AffordabilityText';
 import StarsRating from '../components/StarsRating';
 
 const ListItem = props => {
@@ -85,7 +86,11 @@ const MealDetailsScreen = props => {
               color={Colors.white}
               style={{ top: 3 }}
             />
-            <Text style={styles.textInfo}>{selectedMeal.affordability}</Text>
+            <AffordabilityText
+              affordable={selectedMeal.isAffordable}
+              pricey={selectedMeal.isPricey}
+              luxurious={selectedMeal.isLuxurious}
+              style={styles.textInfo} />
           </View>
         </View>
         <View

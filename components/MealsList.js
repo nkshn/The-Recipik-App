@@ -18,8 +18,10 @@ const MealsList = props => {
         imageUrl={itemData.item.imageUrl}
         duration={itemData.item.duration}
         complexity={itemData.item.complexity}
-        affordability={itemData.item.affordability}
         rating={itemData.item.rating}
+        afforgable={itemData.item.isAffordable}
+        pricey={itemData.item.isPricey}
+        luxurious={itemData.item.isLuxurious}
         onSelectSpecialMeal={() => {
           props.navigation.navigate({
             routeName: 'MealDetails',

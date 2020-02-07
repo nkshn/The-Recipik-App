@@ -12,6 +12,7 @@ import Colors from '../constants/colors';
 import Title from '../components/Title';
 import MainButton from '../components/MainButton';
 import StarsRating from '../components/StarsRating';
+import AffordabilityText from '../components/AffordabilityText';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
 
 const Mealtem = props => {
@@ -57,7 +58,11 @@ const Mealtem = props => {
               color={Colors.grey}
               style={styles.icons}
             />
-            <Text style={styles.textInfo}>{props.affordability}</Text>
+            <AffordabilityText
+              affordable={props.afforgable}
+              pricey={props.pricey}
+              luxurious={props.luxurious}
+              style={styles.textInfo} />
           </View>
         </View>
         <View style={styles.buttonContainer}>

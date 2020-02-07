@@ -36,20 +36,41 @@ const FilterMealsScreen = props => {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
 
-  const [isAffordableActive, setIsAffordableActive] = useState(false);
-  const [isPriceyActive, setIsPriceyActive] = useState(false);
-  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false);
+  const [isAffordableActive, setIsAffordableActive] = useState(false); // true
+  const [isPriceyActive, setIsPriceyActive] = useState(false); // true
+  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false); // true
 
   const saveFilters = useCallback(() => {
     const appliedFilters = {
       glutenFree: isGlutenFree,
       lactoseFree: isLactoseFree,
       vegetarian: isVegetarian,
-      vegan: isVegan
+      vegan: isVegan,
+
+      affordable: isAffordableActive,
+      pricey: isPriceyActive,
+      luxurious: isLuxuriousActive
     };
 
+    console.log('-----------------------');
+    console.log('afforgable: ' + appliedFilters.affordable);
+    console.log('pricey: ' + appliedFilters.pricey);
+    console.log('luxurious: ' + appliedFilters.luxurious);
+    console.log('-----------------------');
+
     dispatch(setFilters(appliedFilters));
-  }, [isGlutenFree, isLactoseFree, isVegan, isVegetarian, dispatch]);
+  }, [
+    isGlutenFree,
+    isLactoseFree,
+    isVegan,
+    isVegetarian,
+
+    isAffordableActive,
+    isPriceyActive,
+    isLuxuriousActive,
+
+    dispatch
+  ]);
 
   useEffect(() => {
     navigation.setParams({ save: saveFilters });
