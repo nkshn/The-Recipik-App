@@ -1,18 +1,13 @@
 import React from 'react';
-import {
-  View,
-  Text,
-  Platform,
-  StyleSheet
-} from 'react-native';
+import { View, Text, Platform, StyleSheet } from 'react-native';
 import { Foundation, Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
-import AffordabilityText from "../components/AffordabilityText";
+import SpecificIcon from '../components/SpecificIcon';
 import TouchableComponent from '../components/TouchableComponent';
 
 const FilterChoosedItem = props => {
-  const { title, isActiveItem, onPress } = props;
+  const { title, isActiveItem, onPress, iconName, iconComponent } = props;
 
   const ActivatedBadge = () => {
     return (
@@ -39,10 +34,11 @@ const FilterChoosedItem = props => {
         ]}
       >
         {isActiveItem === true ? <ActivatedBadge /> : <View></View>}
-        <Foundation
+        <SpecificIcon
           size={24}
-          name="dollar-bill"
+          name={iconName}
           style={{ top: -1 }}
+          iconComponent={iconComponent}
           color={isActiveItem === true ? Colors.white : Colors.mainColor}
         />
         <Text
@@ -51,7 +47,7 @@ const FilterChoosedItem = props => {
             { color: isActiveItem === true ? Colors.white : Colors.mainColor }
           ]}
         >
-          {props.title}
+          {title}
         </Text>
       </View>
     </TouchableComponent>
@@ -60,7 +56,7 @@ const FilterChoosedItem = props => {
 
 const styles = StyleSheet.create({
   filtersChoosedRowItem: {
-    width: 102,
+    width: 105,
     height: 65,
     justifyContent: 'center',
     alignItems: 'center',
@@ -68,6 +64,8 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingVertical: 10,
     paddingHorizontal: 13,
+    borderWidth: 1,
+    borderColor: Colors.lighterGreyText,
     backgroundColor: Colors.lighterGreyBackgroud
   },
   filterChoosedText: {

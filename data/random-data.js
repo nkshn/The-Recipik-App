@@ -19,7 +19,7 @@ export const MEALS = [
     'm1',
     ['c1', 'c2'],
     'Spaghetti with Tomato Sauce',
-    'simple',
+    1, // 'simple',
     'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
     20,
     [
@@ -44,7 +44,11 @@ export const MEALS = [
     true,
     true,
     1.7,
-
+    // Affordability
+    true,
+    false,
+    false,
+    // Complexity
     true,
     false,
     false
@@ -53,7 +57,7 @@ export const MEALS = [
     'm2',
     ['c2'],
     'Toast Hawaii',
-    'simple',
+    1, // 'simple',
     'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     10,
     [
@@ -73,7 +77,11 @@ export const MEALS = [
     false,
     false,
     4.7,
-
+    // Affordability
+    true,
+    false,
+    false,
+    // Complexity
     true,
     false,
     false
@@ -82,7 +90,7 @@ export const MEALS = [
     'm3',
     ['c3'],
     'Classic Hamburger',
-    'simple',
+    1, // 'simple',
     'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
     45,
     [
@@ -105,16 +113,20 @@ export const MEALS = [
     false,
     true,
     5,
-
+    // Affordability
     false,
     true,
+    false,
+    // Complexity
+    true,
+    false,
     false
   ),
   new Meal(
     'm4',
     ['c4'],
     'Wiener Schnitzel',
-    'challenging',
+    2, // 'challenging',
     'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
     60,
     [
@@ -141,16 +153,20 @@ export const MEALS = [
     false,
     false,
     4,
-
+    // Affordability
     false,
     false,
-    true
+    true,
+    // Complexity
+    false,
+    true,
+    false
   ),
   new Meal(
     'm5',
     ['c2', 'c5', 'c10'],
     'Salad with Smoked Salmon',
-    'simple',
+    1, // 'simple',
     'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
     15,
     [
@@ -176,16 +192,20 @@ export const MEALS = [
     true,
     true,
     3,
-
+    // Affordability
     false,
     true, // false
-    false // true
+    false, // true
+    // Complexity
+    true,
+    false,
+    false
   ),
   new Meal(
     'm6',
     ['c6', 'c10'],
     'Delicious Orange Mousse',
-    'hard',
+    3, // 'hard',
     'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
     245,
     [
@@ -212,16 +232,20 @@ export const MEALS = [
     true,
     false,
     3,
-
+    // Affordability
     true,
     false,
-    false
+    false,
+    // Complexity
+    false,
+    false,
+    true
   ),
   new Meal(
     'm7',
     ['c7'],
     'Pancakes',
-    'simple',
+    1, // 'simple',
     'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
     20,
     [
@@ -244,7 +268,11 @@ export const MEALS = [
     true,
     false,
     1,
-
+    // Affordability
+    true,
+    false,
+    false,
+    // Complexity
     true,
     false,
     false
@@ -253,7 +281,7 @@ export const MEALS = [
     'm8',
     ['c8'],
     'Creamy Indian Chicken Curry',
-    'challenging',
+    2, // 'challenging',
     'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
     35,
     [
@@ -278,7 +306,11 @@ export const MEALS = [
     false,
     true,
     2,
-
+    // Affordability
+    false,
+    true,
+    false,
+    // Complexity
     false,
     true,
     false
@@ -287,7 +319,7 @@ export const MEALS = [
     'm9',
     ['c9'],
     'Chocolate Souffle',
-    'hard',
+    3, // 'hard',
     'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
     45,
     [
@@ -328,16 +360,20 @@ export const MEALS = [
     true,
     false,
     3.5,
-
+    // Affordability
     true,
     false,
-    false
+    false,
+    // Complexity
+    false,
+    false,
+    true
   ),
   new Meal(
     'm10',
     ['c2', 'c5', 'c10'],
     'Asparagus Salad with Cherry Tomatoes',
-    'simple',
+    1, // 'simple',
     'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
     120,
     [
@@ -361,9 +397,13 @@ export const MEALS = [
     true,
     true,
     5,
-
+    // Affordability
     false,
     false,
-    true
+    true,
+    // Complexity
+    true,
+    false,
+    false
   )
 ];

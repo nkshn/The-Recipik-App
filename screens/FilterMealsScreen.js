@@ -10,12 +10,6 @@ import {
 } from 'react-native';
 import { useDispatch } from 'react-redux';
 
-import {
-  MaterialCommunityIcons,
-  Foundation,
-  Ionicons
-} from '@expo/vector-icons';
-
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 
@@ -36,9 +30,15 @@ const FilterMealsScreen = props => {
   const [isVegetarian, setIsVegetarian] = useState(false);
   const [isVegan, setIsVegan] = useState(false);
 
+  // Affordability
   const [isAffordableActive, setIsAffordableActive] = useState(false); // true
   const [isPriceyActive, setIsPriceyActive] = useState(false); // true
   const [isLuxuriousActive, setIsLuxuriousActive] = useState(false); // true
+
+  // Complexity
+  const [isSimpleActive, setIsSimpleActive] = useState(false); // true
+  const [isChallengingActive, setIsChallengingActive] = useState(false); // true
+  const [isHardActive, setIsHardActive] = useState(false); // true
 
   const saveFilters = useCallback(() => {
     const appliedFilters = {
@@ -47,16 +47,26 @@ const FilterMealsScreen = props => {
       vegetarian: isVegetarian,
       vegan: isVegan,
 
+      // Affordability
       affordable: isAffordableActive,
       pricey: isPriceyActive,
-      luxurious: isLuxuriousActive
+      luxurious: isLuxuriousActive,
+
+      // Complexity
+      simple: isSimpleActive,
+      challenging: isChallengingActive,
+      hard: isHardActive
     };
 
-    console.log('-----------------------');
+    console.log('---- Affordability ----');
     console.log('afforgable: ' + appliedFilters.affordable);
     console.log('pricey: ' + appliedFilters.pricey);
-    console.log('luxurious: ' + appliedFilters.luxurious);
-    console.log('-----------------------');
+    console.log('luxurious: ' + appliedFilters.luxurious + '\n');
+
+    console.log('---- Complexity ----');
+    console.log('simple: ' + appliedFilters.simple);
+    console.log('challenging: ' + appliedFilters.challenging);
+    console.log('hard: ' + appliedFilters.hard + '\n');
 
     dispatch(setFilters(appliedFilters));
   }, [
@@ -65,9 +75,15 @@ const FilterMealsScreen = props => {
     isVegan,
     isVegetarian,
 
+    // Affordability
     isAffordableActive,
     isPriceyActive,
     isLuxuriousActive,
+
+    // Complexity
+    isSimpleActive,
+    isChallengingActive,
+    isHardActive,
 
     dispatch
   ]);
@@ -119,30 +135,27 @@ const FilterMealsScreen = props => {
         <View style={styles.filtersChoosingContainer}>
           <Title style={styles.subTitle}>choose complexity:</Title>
           <View style={styles.filtersChoosingRow}>
-            <View style={styles.filtersChoosingRowItem}>
-              <MaterialCommunityIcons
-                name="weight"
-                size={24}
-                color={Colors.mainColor}
-              />
-              <Text style={styles.filterChoosingText}>simple</Text>
-            </View>
-            <View style={styles.filtersChoosingRowItem}>
-              <MaterialCommunityIcons
-                name="weight"
-                size={24}
-                color={Colors.mainColor}
-              />
-              <Text style={styles.filterChoosingText}>challenging</Text>
-            </View>
-            <View style={styles.filtersChoosingRowItem}>
-              <MaterialCommunityIcons
-                name="weight"
-                size={24}
-                color={Colors.mainColor}
-              />
-              <Text style={styles.filterChoosingText}>hard</Text>
-            </View>
+            <FilterChoosedItem
+              title="simple"
+              iconName="weight"
+              iconComponent="MaterialCommunityIcons"
+              isActiveItem={isSimpleActive}
+              onPress={() => setIsSimpleActive(!isSimpleActive)}
+            />
+            <FilterChoosedItem
+              title="challenging"
+              iconName="weight"
+              iconComponent="MaterialCommunityIcons"
+              isActiveItem={isChallengingActive}
+              onPress={() => setIsChallengingActive(!isChallengingActive)}
+            />
+            <FilterChoosedItem
+              title="hard"
+              iconName="weight"
+              iconComponent="MaterialCommunityIcons"
+              isActiveItem={isHardActive}
+              onPress={() => setIsHardActive(!isHardActive)}
+            />
           </View>
         </View>
         <View style={styles.filtersChoosingContainer}>
@@ -150,16 +163,22 @@ const FilterMealsScreen = props => {
           <View style={styles.filtersChoosingRow}>
             <FilterChoosedItem
               title="affordable"
+              iconName="dollar-bill"
+              iconComponent="Foundation"
               isActiveItem={isAffordableActive}
               onPress={() => setIsAffordableActive(!isAffordableActive)}
             />
             <FilterChoosedItem
               title="pricey"
+              iconName="dollar-bill"
+              iconComponent="Foundation"
               isActiveItem={isPriceyActive}
               onPress={() => setIsPriceyActive(!isPriceyActive)}
             />
             <FilterChoosedItem
               title="luxurious"
+              iconName="dollar-bill"
+              iconComponent="Foundation"
               isActiveItem={isLuxuriousActive}
               onPress={() => setIsLuxuriousActive(!isLuxuriousActive)}
             />
