@@ -6,7 +6,7 @@ const AffordabilityText = props => {
   let correctTextOutput;
 
   if (affordable) {
-    correctTextOutput = 'afforgable';
+    correctTextOutput = 'affordable';
   } else if (pricey) {
     correctTextOutput = 'pricey';
   } else if (luxurious) {

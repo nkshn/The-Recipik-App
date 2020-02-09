@@ -171,7 +171,7 @@ const FilterMealsScreen = props => {
           />
         </View>
         <View style={styles.filtersChoosingContainer}>
-          <Title style={styles.subTitle}>choose complexity:</Title>
+          <Title style={styles.subTitle}>choose meals complexity:</Title>
           <View style={styles.filtersChoosingRow}>
             <FilterChoosedItem
               title="simple"
@@ -197,7 +197,7 @@ const FilterMealsScreen = props => {
           </View>
         </View>
         <View style={styles.filtersChoosingContainer}>
-          <Title style={styles.subTitle}>choose affordability:</Title>
+          <Title style={styles.subTitle}>choose meals affordability:</Title>
           <View style={styles.filtersChoosingRow}>
             <FilterChoosedItem
               title="affordable"

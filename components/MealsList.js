@@ -21,7 +21,7 @@ const MealsList = props => {
         simple={itemData.item.isSimple}
         challenging={itemData.item.isChallenging}
         hard={itemData.item.isHard}
-        afforgable={itemData.item.isAffordable}
+        affordable={itemData.item.isAffordable}
         pricey={itemData.item.isPricey}
         luxurious={itemData.item.isLuxurious}
         onSelectSpecialMeal={() => {

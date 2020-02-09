@@ -65,7 +65,7 @@ const Mealtem = props => {
               style={styles.icons}
             />
             <AffordabilityText
-              affordable={props.afforgable}
+              affordable={props.affordable}
               pricey={props.pricey}
               luxurious={props.luxurious}
               style={styles.textInfo}
