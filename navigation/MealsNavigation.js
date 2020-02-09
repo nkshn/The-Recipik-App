@@ -147,6 +147,13 @@ const customDrawerComponent = props => {
           <DrawerItems {...props} />
         </View>
       </ScrollView>
+      <View style={styles.applicationInfoContainer}>
+        <View style={styles.developersListView}>
+          <Title style={styles.developersText}>Desinged by Di</Title>
+          <Title style={styles.developersText}>Developed by Tappik</Title>
+        </View>
+        <Title style={styles.currentVersionText}>Current version 2.0</Title>
+      </View>
     </SafeAreaView>
   );
 };
@@ -227,6 +234,27 @@ const styles = StyleSheet.create({
   },
   navigationItemsContainer: {
     marginTop: -5
+  },
+
+  applicationInfoContainer: {
+    marginBottom: 13,
+    justifyContent: 'flex-end'
+  },
+  developersListView: {
+    marginBottom: 7,
+    alignItems: 'center'
+  },
+  developersText: {
+    fontSize: 13,
+    letterSpacing: 1,
+    marginVertical: 0.5,
+    fontFamily: 'lato-regular'
+  },
+  currentVersionText: {
+    fontSize: 10,
+    letterSpacing: 1,
+    textAlign: 'center',
+    fontFamily: 'lato-regular'
   }
 });
 
