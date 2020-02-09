@@ -13,7 +13,6 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import { createMaterialBottomTabNavigator } from 'react-navigation-material-bottom-tabs';
-import {} from 'react-native-paper';
 
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
 
@@ -67,8 +66,8 @@ const tabScreenConfig = {
         Platform.OS === 'android' ? (
           <Text style={{ fontFamily: 'lato-regular' }}>Meals</Text>
         ) : (
-          'Meals'
-        ),
+            'Meals'
+          ),
       tabBarIcon: tabInfo => {
         return (
           <MaterialCommunityIcons
@@ -88,8 +87,8 @@ const tabScreenConfig = {
         Platform.OS === 'android' ? (
           <Text style={{ fontFamily: 'lato-regular' }}>Favorites</Text>
         ) : (
-          'Favorites'
-        ),
+            'Favorites'
+          ),
       tabBarIcon: tabInfo => {
         return (
           <View>
@@ -113,18 +112,18 @@ const tabScreenConfig = {
 const MealsFavTabNavigation =
   Platform.OS === 'android'
     ? createMaterialBottomTabNavigator(tabScreenConfig, {
-        activeColor: Colors.mainColor,
-        barStyle: {
-          backgroundColor: Colors.lighterGreyBackgroud
-        },
-        shifting: true
-      })
+      activeColor: Colors.mainColor,
+      barStyle: {
+        backgroundColor: Colors.lighterGreyBackgroud
+      },
+      shifting: true
+    })
     : createBottomTabNavigator(tabScreenConfig, {
-        tabBarOptions: {
-          labelStyle: { fontFamily: 'lato-regular' },
-          activeTintColor: Colors.mainColor
-        }
-      });
+      tabBarOptions: {
+        labelStyle: { fontFamily: 'lato-regular' },
+        activeTintColor: Colors.mainColor
+      }
+    });
 
 const FilterStackNavigator = createStackNavigator(
   { Filter: FilterMealsScreen },
@@ -237,21 +236,21 @@ const styles = StyleSheet.create({
   },
 
   applicationInfoContainer: {
-    marginBottom: 13,
+    marginBottom: 10,
     justifyContent: 'flex-end'
   },
   developersListView: {
-    marginBottom: 7,
+    marginBottom: 4,
     alignItems: 'center'
   },
   developersText: {
-    fontSize: 13,
+    fontSize: 11,
     letterSpacing: 1,
     marginVertical: 0.5,
     fontFamily: 'lato-regular'
   },
   currentVersionText: {
-    fontSize: 10,
+    fontSize: 9,
     letterSpacing: 1,
     textAlign: 'center',
     fontFamily: 'lato-regular'

@@ -34,15 +34,15 @@ const styles = StyleSheet.create({
       Platform.OS === 'android' && Platform.Version >= 21
         ? 'hidden'
         : 'visible',
-    elevation: 5
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1, },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   container: {
     flex: 1,
     borderRadius: 13,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
     padding: 15,
     justifyContent: 'flex-end',
     alignItems: 'flex-end'
