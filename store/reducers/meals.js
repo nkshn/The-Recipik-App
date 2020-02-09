@@ -23,49 +23,94 @@ const mealsReducer = (state = initialState, action) => {
       }
     case SET_FILTERS:
       const appliedFilters = action.filters;
+      var mealsFiltered;
 
-      // const complexityAffordabilityFilter = state.meals;
-      const complexityAffordabilityFilter = state.meals.filter(meal => {
-        // Affordability Checkers
-        if ((appliedFilters.affordable && appliedFilters.luxurious) && (meal.isAffordable || meal.isLuxurious)) {
-          return true;
-        }
-        if (appliedFilters.affordable && meal.isAffordable) {
-          return true;
-        }
-        if (appliedFilters.pricey && meal.isPricey) {
-          return true;
-        }
-        if (appliedFilters.luxurious && meal.isLuxurious) {
-          return true;
-        }
+      // When Complexity or Affordability is NOT Choosed
+      if ((!appliedFilters.simple && !appliedFilters.challenging && !appliedFilters.hard) || (!appliedFilters.affordable && !appliedFilters.pricey && !appliedFilters.luxurious)) {
+        mealsFiltered = state.meals.filter(() => {
+          // Checking if all Complexity filters is disabled
+          if (!appliedFilters.simple && !appliedFilters.challenging && !appliedFilters.hard) {
+            return true;
+          }
+          // Checking if all Affordability filters is disabled
+          if (!appliedFilters.affordable && !appliedFilters.pricey && !appliedFilters.luxurious) {
+            return true;
+          }
+        })
+      }
 
-        // Complexity Checkers
-        if ((appliedFilters.simple && appliedFilters.hard) && (meal.isSimple || meal.isHard)) {
-          return true;
-        }
-        if (appliedFilters.simple && meal.isSimple) {
-          return true;
-        }
-        if (appliedFilters.challenging && meal.isChallenging) {
-          return true;
-        }
-        if (appliedFilters.hard && meal.isHard) {
-          return true;
-        }
+      // When Complexity AND Affordability IS Choosed
+      if ((appliedFilters.simple || appliedFilters.challenging || appliedFilters.hard) && (appliedFilters.affordable || appliedFilters.pricey || appliedFilters.luxurious)) {
+        mealsFiltered = state.meals.filter(meal => {
+          if (appliedFilters.simple && appliedFilters.hard && (meal.isSimple || meal.isHard)) {
+            return true;
+          }
+          if (appliedFilters.simple && meal.isSimple) {
+            return true;
+          }
+          if (appliedFilters.challenging && meal.isChallenging) {
+            return true;
+          }
+          if (appliedFilters.hard && meal.isHard) {
+            return true;
+          }
 
-        // Checkers if all Affordability items is disabled
-        if (!appliedFilters.affordable && !appliedFilters.pricey && !appliedFilters.luxurious) {
-          return true;
-        }
-        // Checkers if all Complexity items is disabled
-        if (!appliedFilters.simple && !appliedFilters.challenging && !appliedFilters.hard) {
-          return true;
-        }
-        return false;
-      });
+          if (appliedFilters.affordable && appliedFilters.luxurious && (meal.isAffordable || meal.isLuxurious)) {
+            return true;
+          }
+          if (appliedFilters.affordable && meal.isAffordable) {
+            return true;
+          }
+          if (appliedFilters.pricey && meal.isPricey) {
+            return true;
+          }
+          if (appliedFilters.luxurious && meal.isLuxurious) {
+            return true;
+          }
+          return false;
+        });
+      }
 
-      const updatedFilteredMeals = complexityAffordabilityFilter.filter(meal => {
+      // When ONLY Complexity IS Choosed
+      if (appliedFilters.simple || appliedFilters.challenging || appliedFilters.hard) {
+        mealsFiltered = state.meals.filter(meal => {
+          if (appliedFilters.simple && appliedFilters.hard && (meal.isSimple || meal.isHard)) {
+            return true;
+          }
+          if (appliedFilters.simple && meal.isSimple) {
+            return true;
+          }
+          if (appliedFilters.challenging && meal.isChallenging) {
+            return true;
+          }
+          if (appliedFilters.hard && meal.isHard) {
+            return true;
+          }
+          return false;
+        })
+      }
+
+      // When ONLY Affordability IS Choosed
+      if (appliedFilters.affordable || appliedFilters.pricey || appliedFilters.luxurious) {
+        mealsFiltered = state.meals.filter(meal => {
+          if (appliedFilters.affordable && appliedFilters.luxurious && (meal.isAffordable || meal.isLuxurious)) {
+            return true;
+          }
+          if (appliedFilters.affordable && meal.isAffordable) {
+            return true;
+          }
+          if (appliedFilters.pricey && meal.isPricey) {
+            return true;
+          }
+          if (appliedFilters.luxurious && meal.isLuxurious) {
+            return true;
+          }
+          return false;
+        })
+      }
+
+      // Meals which is already Filterd by Complexity or Affordability start Filter by Vegan or Lactose or Gluten or Vegetarian
+      const updatedFilteredMeals = mealsFiltered.filter(meal => {
         if (appliedFilters.glutenFree && !meal.isGlutenFree) {
           return false;
         }
