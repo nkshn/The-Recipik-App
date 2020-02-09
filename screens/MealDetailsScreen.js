@@ -16,6 +16,7 @@ import Title from '../components/Title';
 import CustomHeaderButton from '../components/CustomHeaderButton';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
 import AffordabilityText from '../components/AffordabilityText';
+import ComplexityText from '../components/ComplexityText';
 import StarsRating from '../components/StarsRating';
 
 const ListItem = props => {
@@ -77,7 +78,12 @@ const MealDetailsScreen = props => {
               size={24}
               color={Colors.white}
             />
-            <Text style={styles.textInfo}>{selectedMeal.complexity}</Text>
+            <ComplexityText
+              simple={selectedMeal.isSimple}
+              challenging={selectedMeal.isChallenging}
+              hard={selectedMeal.isHard}
+              style={styles.textInfo}
+            />
           </View>
           <View style={styles.infoRowItem}>
             <Foundation
@@ -90,7 +96,8 @@ const MealDetailsScreen = props => {
               affordable={selectedMeal.isAffordable}
               pricey={selectedMeal.isPricey}
               luxurious={selectedMeal.isLuxurious}
-              style={styles.textInfo} />
+              style={styles.textInfo}
+            />
           </View>
         </View>
         <View

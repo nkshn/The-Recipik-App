@@ -17,8 +17,10 @@ const MealsList = props => {
         title={itemData.item.title}
         imageUrl={itemData.item.imageUrl}
         duration={itemData.item.duration}
-        complexity={itemData.item.complexity}
         rating={itemData.item.rating}
+        simple={itemData.item.isSimple}
+        challenging={itemData.item.isChallenging}
+        hard={itemData.item.isHard}
         afforgable={itemData.item.isAffordable}
         pricey={itemData.item.isPricey}
         luxurious={itemData.item.isLuxurious}

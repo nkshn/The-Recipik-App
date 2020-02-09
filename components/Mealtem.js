@@ -13,6 +13,7 @@ import Title from '../components/Title';
 import MainButton from '../components/MainButton';
 import StarsRating from '../components/StarsRating';
 import AffordabilityText from '../components/AffordabilityText';
+import ComplexityText from '../components/ComplexityText';
 import CorrectDurationOutput from '../components/CorrectDurationOutput';
 
 const Mealtem = props => {
@@ -49,7 +50,12 @@ const Mealtem = props => {
               color={Colors.grey}
               style={[styles.icons, { marginTop: -1 }]}
             />
-            <Text style={styles.textInfo}>{props.complexity}</Text>
+            <ComplexityText
+              simple={props.simple}
+              challenging={props.challenging}
+              hard={props.hard}
+              style={styles.textInfo}
+            />
           </View>
           <View style={styles.textRowItem}>
             <Foundation
@@ -62,7 +68,8 @@ const Mealtem = props => {
               affordable={props.afforgable}
               pricey={props.pricey}
               luxurious={props.luxurious}
-              style={styles.textInfo} />
+              style={styles.textInfo}
+            />
           </View>
         </View>
         <View style={styles.buttonContainer}>
