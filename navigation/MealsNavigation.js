@@ -134,11 +134,11 @@ const customDrawerComponent = props => {
   return (
     <SafeAreaView style={styles.saveArea}>
       <View style={styles.imageContainer}>
-        <Title style={styles.title}>The Meals Application</Title>
+        <Title style={styles.title}>The Recipik App</Title>
         <Image
           resizeMode="cover"
           style={styles.image}
-          source={require('../assets/images/logo.jpg')}
+          source={require('../assets/images/new_logo.png')}
         />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -222,14 +222,14 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   title: {
+    fontSize: 20,
     letterSpacing: 2,
     marginVertical: 20,
     fontFamily: 'lato-bold'
   },
   image: {
     height: 120,
-    width: 120,
-    borderRadius: 60
+    width: 120
   },
   navigationItemsContainer: {
     marginTop: -5
