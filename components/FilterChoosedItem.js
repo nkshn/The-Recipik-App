@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Platform, StyleSheet } from 'react-native';
-import { Foundation, Ionicons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
 
 import Colors from '../constants/colors';
 import SpecificIcon from '../components/SpecificIcon';
@@ -22,35 +22,41 @@ const FilterChoosedItem = props => {
   };
 
   return (
-    <TouchableComponent
-      activeOpacity={0.7}
-      style={{ flex: 1 }}
-      onPress={onPress}
-    >
-      <View
-        style={[
-          styles.filtersChoosedRowItem,
-          isActiveItem === true ? styles.activeRowItem : ''
-        ]}
-      >
-        {isActiveItem === true ? <ActivatedBadge /> : <View></View>}
-        <SpecificIcon
-          size={24}
-          name={iconName}
-          style={{ top: -1 }}
-          iconComponent={iconComponent}
-          color={isActiveItem === true ? Colors.white : Colors.mainColor}
-        />
-        <Text
-          style={[
-            styles.filterChoosedText,
-            { color: isActiveItem === true ? Colors.white : Colors.mainColor }
-          ]}
+    <View style={isActiveItem === true ? styles.activeRowItemShadow : ''}>
+      {isActiveItem === true ? <ActivatedBadge /> : <View></View>}
+      <View style={{ overflow: 'hidden', borderRadius: 10 }}>
+        <TouchableComponent
+          activeOpacity={0.7}
+          style={{ flex: 1 }}
+          onPress={onPress}
         >
-          {title}
-        </Text>
+          <View
+            style={[
+              styles.filtersChoosedRowItem,
+              isActiveItem === true ? styles.activeRowItem : ''
+            ]}
+          >
+            <SpecificIcon
+              size={24}
+              name={iconName}
+              style={{ top: -1 }}
+              iconComponent={iconComponent}
+              color={isActiveItem === true ? Colors.white : Colors.mainColor}
+            />
+            <Text
+              style={[
+                styles.filterChoosedText,
+                {
+                  color: isActiveItem === true ? Colors.white : Colors.mainColor
+                }
+              ]}
+            >
+              {title}
+            </Text>
+          </View>
+        </TouchableComponent>
       </View>
-    </TouchableComponent>
+    </View>
   );
 };
 
@@ -74,18 +80,21 @@ const styles = StyleSheet.create({
     color: Colors.mainColor,
     fontFamily: 'lato-light'
   },
-
-  activeRowItem: {
+  activeRowItemShadow: {
+    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-    elevation: 3,
-    backgroundColor: Colors.blockYellow,
+    elevation: 3
+  },
+  activeRowItem: {
     borderWidth: 1,
-    borderColor: Colors.mainColor
+    borderColor: Colors.mainColor,
+    backgroundColor: Colors.blockYellow
   },
   activeBadgeContainer: {
+    zIndex: 20,
     backgroundColor: Colors.mainColor,
     position: 'absolute',
     zIndex: 5,
