@@ -346,7 +346,7 @@ FilterMealsScreen.navigationOptions = navigationData => {
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Menu"
-          iconName="ios-menu"
+          iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
           onPress={() => {
             navigationData.navigation.toggleDrawer();
           }}

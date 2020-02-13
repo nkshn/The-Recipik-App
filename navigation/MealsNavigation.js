@@ -96,8 +96,12 @@ const tabScreenConfig = {
             <Ionicons
               name={
                 tabInfo.tintColor === Colors.mainColor
-                  ? 'md-star'
-                  : 'md-star-outline'
+                  ? Platform.OS === 'android'
+                    ? 'md-star'
+                    : 'ios-star'
+                  : Platform.OS === 'android'
+                  ? 'md-star-outline'
+                  : 'ios-star-outline'
               }
               size={25}
               color={tabInfo.tintColor}

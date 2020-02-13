@@ -133,7 +133,15 @@ MealDetailsScreen.navigationOptions = navigationData => {
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Favorite"
-          iconName={isFavorite ? 'md-star' : 'md-star-outline'}
+          iconName={
+            isFavorite
+              ? Platform.OS === 'android'
+                ? 'md-star'
+                : 'ios-star'
+              : Platform.OS === 'android'
+              ? 'md-star-outline'
+              : 'ios-star-outline'
+          }
           onPress={toggleFavorite}
         />
       </HeaderButtons>

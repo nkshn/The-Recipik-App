@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, StyleSheet } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import CustomHeaderButton from '../components/CustomHeaderButton';
@@ -42,7 +42,7 @@ CategoriesScreen.navigationOptions = navigationData => {
       <HeaderButtons HeaderButtonComponent={CustomHeaderButton}>
         <Item
           title="Menu"
-          iconName="ios-menu"
+          iconName={Platform.OS === 'android' ? 'md-menu' : 'ios-menu'}
           onPress={() => {
             navigationData.navigation.toggleDrawer();
           }}
@@ -51,7 +51,5 @@ CategoriesScreen.navigationOptions = navigationData => {
     )
   };
 };
-
-const styles = StyleSheet.create({});
 
 export default CategoriesScreen;
