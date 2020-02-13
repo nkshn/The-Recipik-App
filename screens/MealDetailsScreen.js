@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     marginBottom: 8
   },
   recipeDetailsRenderItem: {
-    marginVertical: 2,
+    marginVertical: 3,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-start'

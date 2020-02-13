@@ -39,7 +39,7 @@ const Mealtem = props => {
               name="clock"
               size={14}
               color={Colors.grey}
-              style={styles.icons}
+              style={[styles.icons, { marginTop: 2.5 }]}
             />
             <CorrectDurationOutput duration={props.duration} />
           </View>

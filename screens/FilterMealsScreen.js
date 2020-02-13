@@ -31,14 +31,14 @@ const FilterMealsScreen = props => {
   const [isVegan, setIsVegan] = useState(false);
 
   // Affordability
-  const [isAffordableActive, setIsAffordableActive] = useState(false); // true
-  const [isPriceyActive, setIsPriceyActive] = useState(false); // true
-  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false); // true
+  const [isAffordableActive, setIsAffordableActive] = useState(false);
+  const [isPriceyActive, setIsPriceyActive] = useState(false);
+  const [isLuxuriousActive, setIsLuxuriousActive] = useState(false);
 
   // Complexity
-  const [isSimpleActive, setIsSimpleActive] = useState(false); // true
-  const [isChallengingActive, setIsChallengingActive] = useState(false); // true
-  const [isHardActive, setIsHardActive] = useState(false); // true
+  const [isSimpleActive, setIsSimpleActive] = useState(false);
+  const [isChallengingActive, setIsChallengingActive] = useState(false);
+  const [isHardActive, setIsHardActive] = useState(false);
 
   // Previous Filters Variables
   const prevGluten = useRef();
