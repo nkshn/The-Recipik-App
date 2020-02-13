@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "The Meals App (v2.0)",
-    "slug": "the-meals-2",
+    "name": "The Recipik App (v2.0)",
+    "slug": "the-recipik-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
     "platforms": ["ios", "android"],

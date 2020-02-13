@@ -66,8 +66,8 @@ const tabScreenConfig = {
         Platform.OS === 'android' ? (
           <Text style={{ fontFamily: 'lato-regular' }}>Meals</Text>
         ) : (
-            'Meals'
-          ),
+          'Meals'
+        ),
       tabBarIcon: tabInfo => {
         return (
           <MaterialCommunityIcons
@@ -87,8 +87,8 @@ const tabScreenConfig = {
         Platform.OS === 'android' ? (
           <Text style={{ fontFamily: 'lato-regular' }}>Favorites</Text>
         ) : (
-            'Favorites'
-          ),
+          'Favorites'
+        ),
       tabBarIcon: tabInfo => {
         return (
           <View>
@@ -112,18 +112,18 @@ const tabScreenConfig = {
 const MealsFavTabNavigation =
   Platform.OS === 'android'
     ? createMaterialBottomTabNavigator(tabScreenConfig, {
-      activeColor: Colors.mainColor,
-      barStyle: {
-        backgroundColor: Colors.lighterGreyBackgroud
-      },
-      shifting: true
-    })
+        activeColor: Colors.mainColor,
+        barStyle: {
+          backgroundColor: Colors.lighterGreyBackgroud
+        },
+        shifting: true
+      })
     : createBottomTabNavigator(tabScreenConfig, {
-      tabBarOptions: {
-        labelStyle: { fontFamily: 'lato-regular' },
-        activeTintColor: Colors.mainColor
-      }
-    });
+        tabBarOptions: {
+          labelStyle: { fontFamily: 'lato-regular' },
+          activeTintColor: Colors.mainColor
+        }
+      });
 
 const FilterStackNavigator = createStackNavigator(
   { Filter: FilterMealsScreen },
@@ -138,7 +138,7 @@ const customDrawerComponent = props => {
         <Image
           resizeMode="cover"
           style={styles.image}
-          source={require('../assets/images/new_logo.png')}
+          source={require('../assets/images/logo.png')}
         />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -149,7 +149,7 @@ const customDrawerComponent = props => {
       <View style={styles.applicationInfoContainer}>
         <View style={styles.developersListView}>
           <Title style={styles.developersText}>Desinged by Di</Title>
-          <Title style={styles.developersText}>Developed by Tappik</Title>
+          <Title style={styles.developersText}>Developed by Dennis</Title>
         </View>
         <Title style={styles.currentVersionText}>Current version 2.0</Title>
       </View>
