@@ -19,9 +19,12 @@ Definitely check and try on your own. Enjoy!
 ## Table of contents
 
 - [Demonstration](#demonstration)
+- [Features](#features)
 - [Technologies](#technologies)
-- [Install the project](#setup)
-- [Run on your device](#How-to-run-on-your-device)
+- [Install the project](#install-the-project)
+- [Run on your device](#how-to-run-on-your-device)
+- [Roadmap](#roadmap)
+- [Credits](#credits)
 
 ## Demonstration
 
@@ -32,7 +35,7 @@ Definitely check and try on your own. Enjoy!
 Project is **created** with **4 main** technologies:
 
 | Name                                                                         | Version   | Purpose to use                                                 |
-| ---------------------------------------------------------------------------- | --------- | -------------------------------------------------------------- |
+| :--------------------------------------------------------------------------- | --------- | :------------------------------------------------------------- |
 | [react-native](https://facebook.github.io/react-native/docs/getting-started) | `^0.61.4` | For cross-platform mobile development using JavaScript         |
 | [expo](https://docs.expo.io/versions/latest/)                                | `~36.0.0` | It helps to easy developing/deploing/testing react-native apps |
 | [react-navigation](https://reactnavigation.org/docs/en/getting-started.html) | `^4.0.10` | For comfortable navigating between screens in app              |
@@ -62,4 +65,4 @@ npm start
 
 > **Tip 1:** If command `npm start` **don't work** so **run** this **command** `expo start`.
 
-> **Tip 2:** If command `expo start` **fails with error** so maybe check this **[issue](https://github.com/expo/expo-cli/issues/1074)**.
+> **Tip 2:** If command `expo start` **fails with error** so maybe **check** this **[issue](https://github.com/expo/expo-cli/issues/1074)**.
