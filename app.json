@@ -1,13 +1,16 @@
 {
   "expo": {
-    "name": "The Recipik App (v2.0)",
+    "name": "The Recipik App",
     "slug": "the-recipik-app",
     "privacy": "public",
     "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": [
+      "ios",
+      "android"
+    ],
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/white_logo.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -16,11 +19,13 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
-    "description": "This is my second learning project using React Native. You can view recipes for different meals of different categories. From Italian traditional food to hamburgers and German food. In this project, I use Redux for data storage, React Navigation for comfort navigating in-application, and other cool stuff. Definitely check and try on your own. Enjoy!",
-    "githubUrl": "https://github.com/nkshn/The-Meals-App"
+    "description": "This is a cross-platform mobile application (Android/iOS), where you can find more than 20 recipes for dishes of different categories. From traditional Italian food to German and French food, and more other categories. There more other cool features. Check and try on your own. Enjoy!",
+    "githubUrl": "https://github.com/nkshn/The-Recipik-App"
   }
 }
