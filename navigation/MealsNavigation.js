@@ -153,7 +153,7 @@ const customDrawerComponent = props => {
       <View style={styles.applicationInfoContainer}>
         <View style={styles.developersListView}>
           <Title style={styles.developersText}>Desinged by Di</Title>
-          <Title style={styles.developersText}>Developed by Dennis</Title>
+          <Title style={styles.developersText}>Developed by Tappik</Title>
         </View>
         <Title style={styles.currentVersionText}>Current version 2.0</Title>
       </View>
