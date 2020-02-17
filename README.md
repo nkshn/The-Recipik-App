@@ -22,13 +22,25 @@ Definitely check and try on your own. Enjoy!
 - [Features](#features)
 - [Technologies](#technologies)
 - [Install the project](#install-the-project)
-- [Run on your device](#how-to-run-on-your-device)
+- [Run on your device](#run-on-your-device)
 - [Roadmap](#roadmap)
 - [Credits](#credits)
 
 ## Demonstration
 
-(this is image)
+To **see** how **Recipik App** works, **click** on image **below**
+
+[![demo of app](/docs/preview.png)](https://youtu.be/G5kxrNiV2Xs)
+
+## Features
+
+- A lot of meals of different categories
+- 3 types of navigation in application with amazing transitions between screen
+- Ability to filter meals according to your personal preferences
+- Ability to set favorite meals and then view all your favorites meals in one place
+- Nice design and great user experience
+
+And more other features you will discover when you just try this app on your own).
 
 ## Technologies
 
@@ -66,3 +78,31 @@ npm start
 > **Tip 1:** If command `npm start` **don't work** so **run** this **command** `expo start`.
 
 > **Tip 2:** If command `expo start` **fails with error** so maybe **check** this **[issue](https://github.com/expo/expo-cli/issues/1074)**.
+
+## Run on your device
+
+To **run** this **application** on **your real Android device**, you **need** to **follow** few **steps**:
+
+- **Firstly**, you need to **download** **[expo client](https://play.google.com/store/apps/details?id=host.exp.exponent&referrer=www)** on your **phone**.
+- **Second**, you should follow **[The Recipik App](https://expo.io/@tappikcode/the-recipik-app) link**.
+- **Next step**:
+  - **If** you **follow** this **[link](https://expo.io/@tappikcode/the-recipik-app)** through your **PC**:
+    - **Scan QR code** with your **mobile device**.
+  - **If** you **follow** this **[link](https://expo.io/@tappikcode/the-recipik-app)** through your **Mobile Phone**:
+    - **Click the blue button `Open project using Expo`**.
+- **Finally**, Enjoy!
+
+## Roadmap
+
+- [ ] Make more responsive design
+- [ ] Add settings screen
+- [ ] Add localization
+- [ ] Add ability to choose color themes
+- [x] Add more meals
+- [x] Add filters screen
+- [x] Add meals filtering logic
+- [x] Upgrade UX/UI
+
+## Credits
+
+**Design** by **[Diana Savchuk](https://www.instagram.com/dia_solodka_vata/)** and **code** by **[Volodymyr Nikishyn](https://github.com/nkshn)**
